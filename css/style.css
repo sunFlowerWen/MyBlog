@@ -1737,6 +1737,9 @@ body {
 #footer a:hover {
   text-decoration: underline;
 }
+#music_div {
+  text-align: center;
+}
 #footer-info {
   line-height: 1.6em;
   font-size: 0.85em;
