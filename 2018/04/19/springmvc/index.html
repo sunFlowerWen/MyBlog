@@ -3,22 +3,26 @@
 <head>
   <meta charset="utf-8">
   
-  <title>feeling | SunFlowerWen</title>
+  <title>springmvc | SunFlowerWen</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="向日葵的太阳，张远生的博客" />
   
-  <meta name="description" content="this is my feeling!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="feeling">
-<meta property="og:url" content="https://sunflowerwen.github.io/feeling/index.html">
+  <meta name="description" content="最近几天在学习myBatis框架和springmvc框架。因为之前学过SSH框架，所以相对来说比较轻松点，但是昨天还是有个关于springmvc的文件上传和下载有个问题弄得焦头烂额。所以以博客以记之。还有一些关于eclipse的知识记录。 发现问题;一直报这个错误，上网搜了很多，发现网上说的主要有两点:第一点是form的mothod要设置成post，第二点需要把表单的enctype设置multip">
+<meta name="keywords" content="框架,springmvc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="springmvc">
+<meta property="og:url" content="https://sunflowerwen.github.io/2018/04/19/springmvc/index.html">
 <meta property="og:site_name" content="SunFlowerWen">
-<meta property="og:description" content="this is my feeling!">
+<meta property="og:description" content="最近几天在学习myBatis框架和springmvc框架。因为之前学过SSH框架，所以相对来说比较轻松点，但是昨天还是有个关于springmvc的文件上传和下载有个问题弄得焦头烂额。所以以博客以记之。还有一些关于eclipse的知识记录。 发现问题;一直报这个错误，上网搜了很多，发现网上说的主要有两点:第一点是form的mothod要设置成post，第二点需要把表单的enctype设置multip">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-28T08:43:00.339Z">
+<meta property="og:image" content="https://sunflowerwen.github.io/img/springmvc/error.PNG">
+<meta property="og:image" content="https://sunflowerwen.github.io/img/springmvc/springmvcupload.PNG">
+<meta property="og:updated_time" content="2018-04-19T04:45:21.523Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="feeling">
-<meta name="twitter:description" content="this is my feeling!">
+<meta name="twitter:title" content="springmvc">
+<meta name="twitter:description" content="最近几天在学习myBatis框架和springmvc框架。因为之前学过SSH框架，所以相对来说比较轻松点，但是昨天还是有个关于springmvc的文件上传和下载有个问题弄得焦头烂额。所以以博客以记之。还有一些关于eclipse的知识记录。 发现问题;一直报这个错误，上网搜了很多，发现网上说的主要有两点:第一点是form的mothod要设置成post，第二点需要把表单的enctype设置multip">
+<meta name="twitter:image" content="https://sunflowerwen.github.io/img/springmvc/error.PNG">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -153,20 +157,27 @@
 	</div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-springmvc" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      feeling
+      springmvc
     </h1>
     <div class="post-title-bar">
       <ul>
           
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/疑难杂症/">疑难杂症</a>
+                  
+              </li>
+          
         <li>
-          <i class="fa fa-calendar"></i>  2018-03-28
+          <i class="fa fa-calendar"></i>  2018-04-19
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -179,15 +190,37 @@
           
       </header>
     
-    <div class="article-entry " itemprop="articleBody">
+    <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>this is my feeling!</p>
+            <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>最近几天在学习<code>myBatis</code>框架和<code>springmvc</code>框架。因为之前学过<code>SSH</code>框架，所以相对来说比较轻松点，但是昨天还是有个关于springmvc的文件上传和下载有个问题弄得焦头烂额。所以以博客以记之。还有一些关于eclipse的知识记录。</p>
+<h2 id="发现问题"><a href="#发现问题" class="headerlink" title="发现问题"></a>发现问题</h2><p><img src="/img/springmvc/error.PNG" alt="错误问题">;<br>一直报这个错误，上网搜了很多，发现网上说的主要有两点:第一点是form的mothod要设置成<code>post</code>，第二点需要把表单的enctype设置<code>multipart/form-data</code>。但是我的代码这两点都做到了，还是出现这问题。</p>
+<h2 id="分析问题"><a href="#分析问题" class="headerlink" title="分析问题"></a>分析问题</h2><p>经过浏览器的地址，和尝试发现了一个问题。我的请求地址名字和网页的名字相同。</p>
+<p><pre><code> </code></pre></p>
+<pre><code>public class UploadDownloadController {
+@RequestMapping(value=&quot;/upload&quot;)
+@ResponseBody
+/**
+ * 通过multipartFile 来接受文件，如果是多个文件，就使用数组
+ * 形参名与表单名一样
+ * @param file
+ * @return
+ */ 
+</code></pre><p></p>
+<p><pre><code> </code></pre></p>
+<pre><code>&lt;form action=&quot;/uploadFile&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot; &gt;
+    用户名：&lt;input type=&quot;text&quot; name=&quot;username&quot;&gt; &lt;br/&gt;
+    头&amp;emsp;像:&lt;input type=&quot;file&quot; name=&quot;file&quot;/&gt;&lt;br/&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;上传&quot;&gt;
+&lt;/form&gt; 
+</code></pre><p><br>这时候提交表单给后台的时候访问的是/upload,但是我打印出name,file值都为空，当时随便打印一个字符，是可以打印出来的，说明是访问到这个方法。但是得不到前台传出来的数据。</p>
+<h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><p>我把请求地址改成/uploadFile这时就可以解决问题。能够得到数据。具体什么原因，应该是springmvc在源码中可以看出对于一个请求地址，springmvc会生成/地址<em>，例如/upload。会生成/upload</em>，这时你在访问/upload_do，什么的也可以访问到，这时对于一个请求地址和网页地址一样，就会起到冲突。所以会出现上面的问题。</p>
+<h2 id="上传文件找不到问题以及解决"><a href="#上传文件找不到问题以及解决" class="headerlink" title="上传文件找不到问题以及解决"></a>上传文件找不到问题以及解决</h2><p>我在eclipse中创建了一个upload文件夹，但是发现上传的文件并在这个文件夹中找不到。这时候我打印出来上传的真实路径：<br><img src="/img/springmvc/springmvcupload.PNG" alt="打印路径">，发现在<code>D:\soft\apache-tomcat-7.0.63\webapps\springmvc_lastly\upload</code>文件夹中。这时我就知道原因了，原来我把网站部署到tomcat的时候doBase写的是默认的路径，即tomcat webapps的文件夹中，这时它会给我生成一个项目，里面的东西都存在那里面。所以这时我只需要右键项目名找到properties,找到resources。然后复制项目的原始路径，替换到doBase中，重新启动服务器就行。例如doBase改成<code>E:\eclipse\springmvc_lastly\WebContent</code>。这时就可以看到eclipse创建的文件中看到了上传的文件了。</p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年03月28日 16:43</p>
-        <p>原始链接： <a class="post-url" href="/feeling/index.html" title="feeling">https://sunflowerwen.github.io/feeling/index.html</a></p>
+        <p>最后更新： 2018年04月19日 12:45</p>
+        <p>原始链接： <a class="post-url" href="/2018/04/19/springmvc/" title="springmvc">https://sunflowerwen.github.io/2018/04/19/springmvc/</a></p>
         <footer>
             <a href="https://sunflowerwen.github.io">
                 <img src="/images/logo0.png" alt="ZhangYuansheng">
@@ -244,7 +277,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sunflowerwen.github.io/feeling/&title=《feeling》 — SunFlowerWen&pic=https://sunflowerwen.github.ioimages/logo0.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sunflowerwen.github.io/2018/04/19/springmvc/&title=《springmvc》 — SunFlowerWen&pic=img/springmvc/springmvc.png" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -254,22 +287,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sunflowerwen.github.io/feeling/&title=《feeling》 — SunFlowerWen&source=我是向日葵，开心时，向着太阳，我不开心时，嗑瓜子" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sunflowerwen.github.io/2018/04/19/springmvc/&title=《springmvc》 — SunFlowerWen&source=我是向日葵，开心时，向着太阳，我不开心时，嗑瓜子" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sunflowerwen.github.io/feeling/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sunflowerwen.github.io/2018/04/19/springmvc/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《feeling》 — SunFlowerWen&url=https://sunflowerwen.github.io/feeling/&via=https://sunflowerwen.github.io" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《springmvc》 — SunFlowerWen&url=https://sunflowerwen.github.io/2018/04/19/springmvc/&via=https://sunflowerwen.github.io" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sunflowerwen.github.io/feeling/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sunflowerwen.github.io/2018/04/19/springmvc/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -279,7 +312,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://sunflowerwen.github.io/feeling/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://sunflowerwen.github.io/2018/04/19/springmvc/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -288,6 +321,15 @@
         <ul class="article-footer-menu">
             
             
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/框架/" class="color3">框架</a>
+      
+    <a href="/tags/springmvc/" class="color5">springmvc</a>
+      
+  </li>
+
         </ul>
         
     </footer>
@@ -295,11 +337,27 @@
 </article>
 
 
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#发现问题"><span class="post-toc-text">发现问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分析问题"><span class="post-toc-text">分析问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解决问题"><span class="post-toc-text">解决问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#上传文件找不到问题以及解决"><span class="post-toc-text">上传文件找不到问题以及解决</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2018/04/04/office2010-article/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">office2010_article</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
 
 
 
     
-        <div id="SOHUCS" sid="" ></div>
+        <div id="SOHUCS" sid="springmvc" ></div>
 <script type="text/javascript">
     (function(){
         var appid = 'cytxjYyi4';
