@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>算法-链表 | SunFlowerWen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="向日葵的太阳，张远生的博客" />
+  
+  <meta name="description" content="单链表1.设计递归算法，删除不带头结点的单链表L中所有值为x的结点123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354#include&amp;lt;stdio.h&amp;gt;#include&amp;lt;stdlib.h&amp;gt;typedef struct LNode&amp;">
+<meta name="keywords" content="单链表,c语言,算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法-链表">
+<meta property="og:url" content="https://sunflowerwen.github.io/2019/02/26/算法-链表/index.html">
+<meta property="og:site_name" content="SunFlowerWen">
+<meta property="og:description" content="单链表1.设计递归算法，删除不带头结点的单链表L中所有值为x的结点123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354#include&amp;lt;stdio.h&amp;gt;#include&amp;lt;stdlib.h&amp;gt;typedef struct LNode&amp;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-08T06:29:21.348Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法-链表">
+<meta name="twitter:description" content="单链表1.设计递归算法，删除不带头结点的单链表L中所有值为x的结点123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354#include&amp;lt;stdio.h&amp;gt;#include&amp;lt;stdlib.h&amp;gt;typedef struct LNode&amp;">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+	<div id="banner"></div>
+	<div id="header-outer">
+		<div id="header-menu" class="header-menu-pos animated">
+			<div class="header-menu-container">
+				<a href="/" class="left">
+					<span class="site-title">向日葵的太阳</span>
+				</a>
+				<nav id="header-menu-nav" class="right">
+					
+					<a 
+						href="
+						/
+						">
+						<i class="fa fa-home"></i>
+						<span>主页</span>
+					</a>
+					
+					<a 
+						href="
+						/archives
+						">
+						<i class="fa fa-archive"></i>
+						<span>归档</span>
+					</a>
+					
+					<a 
+						href="
+						/feeling
+						">
+						<i class="fa fa-feeling"></i>
+						<span>心得体会</span>
+					</a>
+					
+					<a 
+						href="
+						/about
+						">
+						<i class="fa fa-user"></i>
+						<span>关于我</span>
+					</a>
+					
+				</nav>
+				<a class="mobile-header-menu-button">
+					<i class="fa fa-bars"></i>
+				</a>
+			</div>
+		</div>
+		<div id="header-row">
+			<div id="logo">
+				<a href="/">
+					<img src="/images/logo0.png" alt="logo">
+				</a>
+			</div>
+			<div class="header-info">
+				<div id="header-title">
+					
+					<h2>
+                        向日葵的太阳
+                    </h2>
+					
+				</div>
+				<div id="header-description">
+					
+					<h3>
+                        the sun Sunflowers
+                    </h3>
+					
+				</div>
+			</div>
+			<nav class="header-nav">
+				<div class="social">
+					
+					<a title="
+						home"
+						
+						
+						href="
+						/
+						">
+						<i class="fa fa-home fa-2x"></i></a>
+					
+					<a title="
+						Github"
+						
+						target="_blank"
+						
+						href="
+						//github.com/sunFlowerWen
+						">
+						<i class="fa fa-github fa-2x"></i></a>
+					
+					<a title="
+						Weibo"
+						
+						target="_blank"
+						
+						href="
+						//weibo.com/5688132918/profile?topnav=1&wvr=6&is_all=1
+						">
+						<i class="fa fa-weibo fa-2x"></i></a>
+					
+					<a title="
+						QQ"
+						
+						target="_blank"
+						
+						href="
+						//user.qzone.qq.com/1731022407/main
+						">
+						<i class="fa fa-qq fa-2x"></i></a>
+					
+				</div>
+			</nav>
+		</div>
+	</div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-算法-链表" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      算法-链表
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/数据结构/">数据结构</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2019-02-26
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h2><h3 id="1-设计递归算法，删除不带头结点的单链表L中所有值为x的结点"><a href="#1-设计递归算法，删除不带头结点的单链表L中所有值为x的结点" class="headerlink" title="1.设计递归算法，删除不带头结点的单链表L中所有值为x的结点"></a>1.设计递归算法，删除不带头结点的单链表L中所有值为x的结点</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span>&#123;</span></span><br><span class="line">	<span class="keyword">char</span> data;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">LNode</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125;LNode,*LinkList;</span><br><span class="line"><span class="comment">//尾插法创建单链表 </span></span><br><span class="line"><span class="function">LinkList <span class="title">Create</span><span class="params">(LinkList &amp;L)</span></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> x;</span><br><span class="line">	L=(LNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));<span class="comment">//创建头结点 </span></span><br><span class="line">	LNode *s,*r=L;<span class="comment">//r为表尾指针 </span></span><br><span class="line">	<span class="keyword">while</span>((x=getchar())!=<span class="string">'\n'</span>)&#123;</span><br><span class="line">		s=(LNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">		s-&gt;data=x;</span><br><span class="line">		r-&gt;next=s; </span><br><span class="line">		r=s;</span><br><span class="line">	&#125;</span><br><span class="line">	r-&gt;next=<span class="literal">NULL</span>;</span><br><span class="line">	<span class="keyword">return</span> L;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//打印出链表</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(LinkList L)</span></span>&#123;</span><br><span class="line">	LNode *p;</span><br><span class="line">	p=L-&gt;next;</span><br><span class="line">	<span class="keyword">while</span>(p!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%c"</span>,p-&gt;data);</span><br><span class="line">		p=p-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">//递归算法实现删除不带头结点的单链表L中的所有值x的结点</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Del_x</span><span class="params">(LinkList &amp;L,<span class="keyword">char</span> x)</span></span>&#123;</span><br><span class="line">	LinkList p;</span><br><span class="line">	<span class="keyword">if</span>(L==<span class="literal">NULL</span>)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">if</span>(L-&gt;data==x)&#123;</span><br><span class="line">		p=L;</span><br><span class="line">		L=L-&gt;next;</span><br><span class="line">		<span class="built_in">free</span>(p);</span><br><span class="line">		Del_x(L,x); </span><br><span class="line">	&#125; </span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		Del_x(L-&gt;next,x);</span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	LinkList L;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"请输入链表的结点值：\n"</span>);</span><br><span class="line">	L=Create(L); </span><br><span class="line">	print(L);</span><br><span class="line">	Del_x(L,<span class="string">'a'</span>);</span><br><span class="line">	print(L);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-删除带头结点单链表L中所有值为X的结点，并释放其空间，x不唯一"><a href="#2-删除带头结点单链表L中所有值为X的结点，并释放其空间，x不唯一" class="headerlink" title="2.删除带头结点单链表L中所有值为X的结点，并释放其空间，x不唯一"></a>2.删除带头结点单链表L中所有值为X的结点，并释放其空间，x不唯一</h3><p><font color="#000033" size="4">算法思想：用p从头扫描单链表，pre指向*p结点的前驱。若p所指结点值为x，则删除，并让p移向下一个结点，否则让pre、p指针同步后移一个结点</font><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//删除带头结点单链表L中所有值为x的结点。并释放其空间</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Del_x</span><span class="params">(LinkList &amp;L,<span class="keyword">char</span> x)</span></span>&#123;</span><br><span class="line">	LinkList p=L-&gt;next,pre=L,q;<span class="comment">//置p和pre的初始值</span></span><br><span class="line">	<span class="keyword">while</span>(p!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(p-&gt;data==x)&#123;</span><br><span class="line">			q=p;</span><br><span class="line">			p=p-&gt;next;</span><br><span class="line">			pre-&gt;next=p;</span><br><span class="line">			<span class="built_in">free</span>(q);</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			pre=p;</span><br><span class="line">			p=p-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-递归从尾到头输出结点"><a href="#3-递归从尾到头输出结点" class="headerlink" title="3.递归从尾到头输出结点"></a>3.递归从尾到头输出结点</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">R_print</span><span class="params">(LinkList L)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(L-&gt;next!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">		R_print(L-&gt;next);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%c"</span>,L-&gt;data);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-删除带头结点的单链表最小值"><a href="#4-删除带头结点的单链表最小值" class="headerlink" title="4.删除带头结点的单链表最小值"></a>4.删除带头结点的单链表最小值</h3><p><font color="#000033" size="4">算法思想：用p从头到尾扫描单链表，pre指向<em>p结点的前驱，用minp保存最小结点指针（初值为p），minpre指向</em>minp结点前驱（初值为pre）。一边扫描，一边比较。若p-&gt;data小于minp-&gt;data.则将p，pre分别赋值给minp、mipre。当p扫描完毕，minp指向最小值结点，minpre指向最小值结点的前驱结点，再讲minp所指结点删除即可。</font><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//删除带头结点的最小值</span></span><br><span class="line"><span class="function">LinkList <span class="title">Delete_Min</span><span class="params">(LinkList &amp;L)</span></span>&#123;</span><br><span class="line">	LNode *pre=L,*p=L-&gt;next;<span class="comment">//p为工作指针，pre指向其前驱</span></span><br><span class="line">	LNode *minpre=pre,*minp=p;</span><br><span class="line">	<span class="keyword">while</span>(p!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(p-&gt;data&lt;minp-&gt;data)&#123;</span><br><span class="line">			minp=p;</span><br><span class="line">			minpre=pre;</span><br><span class="line">		&#125;</span><br><span class="line">		pre=p;<span class="comment">//继续扫描下一个结点 </span></span><br><span class="line">		p=p-&gt;next;</span><br><span class="line">	&#125; </span><br><span class="line">	minpre-&gt;next=minp-&gt;next;<span class="comment">//删除最小结点 </span></span><br><span class="line">	<span class="built_in">free</span>(minp);</span><br><span class="line">	<span class="keyword">return</span> L; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="5-带头结点单链表L-设计算法使其元素递增有序"><a href="#5-带头结点单链表L-设计算法使其元素递增有序" class="headerlink" title="5.带头结点单链表L,设计算法使其元素递增有序"></a>5.带头结点单链表L,设计算法使其元素递增有序</h3><p><font color="#000033" size="4">算法思想：采用直接插入排序算法思想，先构成只含有一个数据结点的有序单链表，依次扫描剩下结点</font><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Sort</span><span class="params">(LinkList &amp;L)</span></span>&#123;</span><br><span class="line">	LNode *p=L-&gt;next,*pre;</span><br><span class="line">	LNode *r=p-&gt;next;<span class="comment">//r保持*p后继指针，以保持不断链</span></span><br><span class="line">	p-&gt;next=<span class="literal">NULL</span>;<span class="comment">//构造只含有一个数据结点的有序表</span></span><br><span class="line">	p=r;</span><br><span class="line">	<span class="keyword">while</span>(p!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">		r=p-&gt;next;<span class="comment">//保存*p的后继</span></span><br><span class="line">		pre=L;</span><br><span class="line">		<span class="keyword">while</span>(pre-&gt;next!=<span class="literal">NULL</span>&amp;&amp;pre-&gt;next-&gt;data&lt;p-&gt;data)</span><br><span class="line">			pre=pre-&gt;next;<span class="comment">//在有序表中查找插入*p的前驱结点*pre</span></span><br><span class="line">		p-&gt;next=pre-&gt;next;<span class="comment">//将*p插入到*pre之后</span></span><br><span class="line">		pre-&gt;next=p;</span><br><span class="line">		p=r; <span class="comment">//扫描原单链表中剩下的结点	 </span></span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="6-在一个带头结点单链表中，所有元素结点的数据值无序，删除表中所有介于给定的两个值"><a href="#6-在一个带头结点单链表中，所有元素结点的数据值无序，删除表中所有介于给定的两个值" class="headerlink" title="6.在一个带头结点单链表中，所有元素结点的数据值无序，删除表中所有介于给定的两个值"></a>6.在一个带头结点单链表中，所有元素结点的数据值无序，删除表中所有介于给定的两个值</h3><p><font color="#000033" size="4">算法思想：因为是无序，所以只能逐个结点进行检查，执行删除</font><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span>&#123;</span></span><br><span class="line">	<span class="keyword">char</span> data;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">LNode</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125;LNode,*LinkList;</span><br><span class="line"><span class="comment">//尾插法创建单链表 </span></span><br><span class="line"><span class="function">LinkList <span class="title">Create</span><span class="params">(LinkList &amp;L)</span></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> x;</span><br><span class="line">	L=(LNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));<span class="comment">//创建头结点 </span></span><br><span class="line">	LNode *s,*r=L;<span class="comment">//r为表尾指针 </span></span><br><span class="line">	<span class="keyword">while</span>((x=getchar())!=<span class="string">'\n'</span>)&#123;</span><br><span class="line">		s=(LNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">		s-&gt;data=x;</span><br><span class="line">		r-&gt;next=s; </span><br><span class="line">		r=s;</span><br><span class="line">	&#125;</span><br><span class="line">	r-&gt;next=<span class="literal">NULL</span>;</span><br><span class="line">	<span class="keyword">return</span> L;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//打印出链表</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(LinkList L)</span></span>&#123;</span><br><span class="line">	LNode *p;</span><br><span class="line">	p=L-&gt;next;</span><br><span class="line">	<span class="keyword">while</span>(p!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%c"</span>,p-&gt;data);</span><br><span class="line">		p=p-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">//无序单链表删除介于两个值之间的值</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">RangeDelete</span><span class="params">(LinkList &amp;L,<span class="keyword">char</span> min,<span class="keyword">char</span> max)</span></span>&#123;</span><br><span class="line">	LNode *pr=L,*p=L-&gt;next;<span class="comment">//p是检测指针，pr是前驱</span></span><br><span class="line">	<span class="keyword">while</span>(p!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(p-&gt;data&gt;min &amp;&amp; p-&gt;data&lt;max)&#123;</span><br><span class="line">			pr-&gt;next=p-&gt;next;</span><br><span class="line">			<span class="built_in">free</span>(p);</span><br><span class="line">			p=pr-&gt;next;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			pr=p;</span><br><span class="line">			p=p-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; </span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	LinkList L;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"请输入链表的结点值：\n"</span>);</span><br><span class="line">	L=Create(L); </span><br><span class="line">	print(L);</span><br><span class="line">	RangeDelete(L,<span class="string">'d'</span>,<span class="string">'k'</span>);</span><br><span class="line">	print(L);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2019年03月08日 14:29</p>
+        <p>原始链接： <a class="post-url" href="/2019/02/26/算法-链表/" title="算法-链表">https://sunflowerwen.github.io/2019/02/26/算法-链表/</a></p>
+        <footer>
+            <a href="https://sunflowerwen.github.io">
+                <img src="/images/logo0.png" alt="ZhangYuansheng">
+                ZhangYuansheng
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我喝水~~~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/weixin.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/weixin.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/zhifubao.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sunflowerwen.github.io/2019/02/26/算法-链表/&title=《算法-链表》 — SunFlowerWen&pic=img/2019/dataStruct/linkList.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sunflowerwen.github.io/2019/02/26/算法-链表/&title=《算法-链表》 — SunFlowerWen&source=我是向日葵，开心时，向着太阳，我不开心时，嗑瓜子" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sunflowerwen.github.io/2019/02/26/算法-链表/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《算法-链表》 — SunFlowerWen&url=https://sunflowerwen.github.io/2019/02/26/算法-链表/&via=https://sunflowerwen.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sunflowerwen.github.io/2019/02/26/算法-链表/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://sunflowerwen.github.io/2019/02/26/算法-链表/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/单链表/" class="color4">单链表</a>
+      
+    <a href="/tags/c语言/" class="color4">c语言</a>
+      
+    <a href="/tags/算法/" class="color3">算法</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#单链表"><span class="post-toc-text">单链表</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-设计递归算法，删除不带头结点的单链表L中所有值为x的结点"><span class="post-toc-text">1.设计递归算法，删除不带头结点的单链表L中所有值为x的结点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-删除带头结点单链表L中所有值为X的结点，并释放其空间，x不唯一"><span class="post-toc-text">2.删除带头结点单链表L中所有值为X的结点，并释放其空间，x不唯一</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-递归从尾到头输出结点"><span class="post-toc-text">3.递归从尾到头输出结点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-删除带头结点的单链表最小值"><span class="post-toc-text">4.删除带头结点的单链表最小值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-带头结点单链表L-设计算法使其元素递增有序"><span class="post-toc-text">5.带头结点单链表L,设计算法使其元素递增有序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-在一个带头结点单链表中，所有元素结点的数据值无序，删除表中所有介于给定的两个值"><span class="post-toc-text">6.在一个带头结点单链表中，所有元素结点的数据值无序，删除表中所有介于给定的两个值</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2019/02/28/栈和队列/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          栈和队列
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2019/02/25/经典习题算法“/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">经典习题算法</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="算法-链表" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytxjYyi4';
+        var conf = 'prod_48a827102889e4f5d20616c9ac21153b';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+	<div class="outer">
+		<div id="footer-info" class="inner">
+			
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+			<p>
+				Powered by
+				<a href="http://hexo.io/" target="_blank">Hexo</a>
+				Theme
+				<a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+				&copy;
+				2019
+				ZhangYuansheng<br>
+			</p>
+		</div>
+	</div>
+	<div id="music_div">																		
+		<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=547606280&auto=0&height=32"></iframe>
+	</div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://sunflowerwen.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/2019学习/">2019学习</a><a class="category-link" href="/categories/2019我回来了/">2019我回来了</a><a class="category-link" href="/categories/java面试题/">java面试题</a><a class="category-link" href="/categories/必读/">必读</a><a class="category-link" href="/categories/数据结构/">数据结构</a><a class="category-link" href="/categories/疑难杂症/">疑难杂症</a><a class="category-link" href="/categories/莫名难受/">莫名难受</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/2019/" style="font-size: 15px;">2019</a> <a href="/tags/Adobe-flash-player/" style="font-size: 10px;">Adobe flash player</a> <a href="/tags/BUG/" style="font-size: 10px;">BUG</a> <a href="/tags/C语言/" style="font-size: 10px;">C语言</a> <a href="/tags/Office-2010/" style="font-size: 10px;">Office 2010</a> <a href="/tags/c语言/" style="font-size: 20px;">c语言</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/springmvc/" style="font-size: 10px;">springmvc</a> <a href="/tags/webService/" style="font-size: 10px;">webService</a> <a href="/tags/不要想/" style="font-size: 10px;">不要想</a> <a href="/tags/不要猜/" style="font-size: 10px;">不要猜</a> <a href="/tags/不要看/" style="font-size: 10px;">不要看</a> <a href="/tags/二叉排序树/" style="font-size: 10px;">二叉排序树</a> <a href="/tags/单链表/" style="font-size: 15px;">单链表</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a> <a href="/tags/感想/" style="font-size: 10px;">感想</a> <a href="/tags/技术/" style="font-size: 10px;">技术</a> <a href="/tags/有感而发/" style="font-size: 10px;">有感而发</a> <a href="/tags/未解决/" style="font-size: 10px;">未解决</a> <a href="/tags/栈和队列/" style="font-size: 10px;">栈和队列</a> <a href="/tags/树与二叉树/" style="font-size: 10px;">树与二叉树</a> <a href="/tags/框架/" style="font-size: 10px;">框架</a> <a href="/tags/积累/" style="font-size: 10px;">积累</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线索二叉树/" style="font-size: 10px;">线索二叉树</a> <a href="/tags/软件/" style="font-size: 15px;">软件</a> <a href="/tags/随心所想/" style="font-size: 10px;">随心所想</a> <a href="/tags/面试题/" style="font-size: 10px;">面试题</a> <a href="/tags/顺序表/" style="font-size: 15px;">顺序表</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/feeling">
+                    <i class="fa fa-feeling"></i><span>心得体会</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于我</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/2019/" style="font-size: 15px;">2019</a> <a href="/tags/Adobe-flash-player/" style="font-size: 10px;">Adobe flash player</a> <a href="/tags/BUG/" style="font-size: 10px;">BUG</a> <a href="/tags/C语言/" style="font-size: 10px;">C语言</a> <a href="/tags/Office-2010/" style="font-size: 10px;">Office 2010</a> <a href="/tags/c语言/" style="font-size: 20px;">c语言</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/springmvc/" style="font-size: 10px;">springmvc</a> <a href="/tags/webService/" style="font-size: 10px;">webService</a> <a href="/tags/不要想/" style="font-size: 10px;">不要想</a> <a href="/tags/不要猜/" style="font-size: 10px;">不要猜</a> <a href="/tags/不要看/" style="font-size: 10px;">不要看</a> <a href="/tags/二叉排序树/" style="font-size: 10px;">二叉排序树</a> <a href="/tags/单链表/" style="font-size: 15px;">单链表</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a> <a href="/tags/感想/" style="font-size: 10px;">感想</a> <a href="/tags/技术/" style="font-size: 10px;">技术</a> <a href="/tags/有感而发/" style="font-size: 10px;">有感而发</a> <a href="/tags/未解决/" style="font-size: 10px;">未解决</a> <a href="/tags/栈和队列/" style="font-size: 10px;">栈和队列</a> <a href="/tags/树与二叉树/" style="font-size: 10px;">树与二叉树</a> <a href="/tags/框架/" style="font-size: 10px;">框架</a> <a href="/tags/积累/" style="font-size: 10px;">积累</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线索二叉树/" style="font-size: 10px;">线索二叉树</a> <a href="/tags/软件/" style="font-size: 15px;">软件</a> <a href="/tags/随心所想/" style="font-size: 10px;">随心所想</a> <a href="/tags/面试题/" style="font-size: 10px;">面试题</a> <a href="/tags/顺序表/" style="font-size: 15px;">顺序表</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
