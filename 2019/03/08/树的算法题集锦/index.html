@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>树的算法题集锦 | SunFlowerWen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="向日葵的太阳，张远生的博客" />
+  
+  <meta name="description" content="二叉树的基础问题1.建立一个二叉树12345678910111213141516//采用先序遍历来建树 void preCreateBiTree(BiTree &amp;amp;T)&amp;#123;	char ch;	scanf(&quot;%c&quot;,&amp;amp;ch);	if(ch==&apos;#&apos;)		T=NULL;	else&amp;#123;		T=(BiTree)malloc(sizeof(BiTNode));		if(!T)">
+<meta name="keywords" content="c语言,算法,二叉树">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树的算法题集锦">
+<meta property="og:url" content="https://sunflowerwen.github.io/2019/03/08/树的算法题集锦/index.html">
+<meta property="og:site_name" content="SunFlowerWen">
+<meta property="og:description" content="二叉树的基础问题1.建立一个二叉树12345678910111213141516//采用先序遍历来建树 void preCreateBiTree(BiTree &amp;amp;T)&amp;#123;	char ch;	scanf(&quot;%c&quot;,&amp;amp;ch);	if(ch==&apos;#&apos;)		T=NULL;	else&amp;#123;		T=(BiTree)malloc(sizeof(BiTNode));		if(!T)">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-10T07:42:12.164Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="树的算法题集锦">
+<meta name="twitter:description" content="二叉树的基础问题1.建立一个二叉树12345678910111213141516//采用先序遍历来建树 void preCreateBiTree(BiTree &amp;amp;T)&amp;#123;	char ch;	scanf(&quot;%c&quot;,&amp;amp;ch);	if(ch==&apos;#&apos;)		T=NULL;	else&amp;#123;		T=(BiTree)malloc(sizeof(BiTNode));		if(!T)">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+	<div id="banner"></div>
+	<div id="header-outer">
+		<div id="header-menu" class="header-menu-pos animated">
+			<div class="header-menu-container">
+				<a href="/" class="left">
+					<span class="site-title">向日葵的太阳</span>
+				</a>
+				<nav id="header-menu-nav" class="right">
+					
+					<a 
+						href="
+						/
+						">
+						<i class="fa fa-home"></i>
+						<span>主页</span>
+					</a>
+					
+					<a 
+						href="
+						/archives
+						">
+						<i class="fa fa-archive"></i>
+						<span>归档</span>
+					</a>
+					
+					<a 
+						href="
+						/feeling
+						">
+						<i class="fa fa-feeling"></i>
+						<span>心得体会</span>
+					</a>
+					
+					<a 
+						href="
+						/about
+						">
+						<i class="fa fa-user"></i>
+						<span>关于我</span>
+					</a>
+					
+				</nav>
+				<a class="mobile-header-menu-button">
+					<i class="fa fa-bars"></i>
+				</a>
+			</div>
+		</div>
+		<div id="header-row">
+			<div id="logo">
+				<a href="/">
+					<img src="/images/logo0.png" alt="logo">
+				</a>
+			</div>
+			<div class="header-info">
+				<div id="header-title">
+					
+					<h2>
+                        向日葵的太阳
+                    </h2>
+					
+				</div>
+				<div id="header-description">
+					
+					<h3>
+                        the sun Sunflowers
+                    </h3>
+					
+				</div>
+			</div>
+			<nav class="header-nav">
+				<div class="social">
+					
+					<a title="
+						home"
+						
+						
+						href="
+						/
+						">
+						<i class="fa fa-home fa-2x"></i></a>
+					
+					<a title="
+						Github"
+						
+						target="_blank"
+						
+						href="
+						//github.com/sunFlowerWen
+						">
+						<i class="fa fa-github fa-2x"></i></a>
+					
+					<a title="
+						Weibo"
+						
+						target="_blank"
+						
+						href="
+						//weibo.com/5688132918/profile?topnav=1&wvr=6&is_all=1
+						">
+						<i class="fa fa-weibo fa-2x"></i></a>
+					
+					<a title="
+						QQ"
+						
+						target="_blank"
+						
+						href="
+						//user.qzone.qq.com/1731022407/main
+						">
+						<i class="fa fa-qq fa-2x"></i></a>
+					
+				</div>
+			</nav>
+		</div>
+	</div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-树的算法题集锦" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      树的算法题集锦
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/数据结构/">数据结构</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2019-03-08
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="二叉树的基础问题"><a href="#二叉树的基础问题" class="headerlink" title="二叉树的基础问题"></a>二叉树的基础问题</h2><h3 id="1-建立一个二叉树"><a href="#1-建立一个二叉树" class="headerlink" title="1.建立一个二叉树"></a>1.建立一个二叉树</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//采用先序遍历来建树 </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preCreateBiTree</span><span class="params">(BiTree &amp;T)</span></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> ch;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%c"</span>,&amp;ch);</span><br><span class="line">	<span class="keyword">if</span>(ch==<span class="string">'#'</span>)</span><br><span class="line">		T=<span class="literal">NULL</span>;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		T=(BiTree)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(BiTNode));</span><br><span class="line">		<span class="keyword">if</span>(!T)</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		T-&gt;data=ch;</span><br><span class="line">		preCreateBiTree(T-&gt;lchild);</span><br><span class="line">		preCreateBiTree(T-&gt;rchild);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-复制一棵二叉树"><a href="#2-复制一棵二叉树" class="headerlink" title="2.复制一棵二叉树"></a>2.复制一棵二叉树</h3><p><font color="#000033" size="4">算法思想：如果是空树，递归结束，否则申请一个新结点，复制根结点，递归复制左子树，递归复制右子树</font><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">copyBiTree</span><span class="params">(BiTree T,BiTree &amp;newTree)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(T==<span class="literal">NULL</span>)&#123;</span><br><span class="line">		newTree=<span class="literal">NULL</span>;</span><br><span class="line">		<span class="keyword">return</span> ;</span><br><span class="line">	&#125;</span><br><span class="line">	newTree=(BiTNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(BiTNode));<span class="comment">//申请一个新结点 </span></span><br><span class="line">	<span class="keyword">if</span>(!newTree)</span><br><span class="line">		<span class="built_in">exit</span>(<span class="number">0</span>); </span><br><span class="line">	newTree-&gt;data=T-&gt;data;</span><br><span class="line">	copyBiTree(T-&gt;lchild,newTree-&gt;lchild);</span><br><span class="line">	copyBiTree(T-&gt;rchild,newTree-&gt;rchild);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-递归计算二叉树的深度"><a href="#3-递归计算二叉树的深度" class="headerlink" title="3.递归计算二叉树的深度"></a>3.递归计算二叉树的深度</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//计算二叉树的深度</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">depth</span><span class="params">(BiTree T)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> m,n;</span><br><span class="line">	<span class="keyword">if</span>(T==<span class="literal">NULL</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	m=depth(T-&gt;lchild);</span><br><span class="line">	n=depth(T-&gt;rchild);</span><br><span class="line">	<span class="keyword">return</span> m&gt;n?m+<span class="number">1</span>:n+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-非递归计算二叉树的深度"><a href="#4-非递归计算二叉树的深度" class="headerlink" title="4.非递归计算二叉树的深度"></a>4.非递归计算二叉树的深度</h3><p><font color="#000033" size="4">算法思想：采用层次遍历的算法设置变量level记录当前结点所在层数，设置变量last指向当前层最右结点，每次层次遍历出队时与last比较。若两者相等，那么层数加1，并让last指向下一层最右结点，遍历完成，level值即为二叉树的高度</font><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//非递归算法计算二叉树的高度</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Btdepth</span><span class="params">(BiTree T)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(!T)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;<span class="comment">//树空，高度为零 </span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> front=<span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">int</span> rear=<span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">int</span> last=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> level=<span class="number">0</span>;</span><br><span class="line">	BiTree Q[MAXSIZE];<span class="comment">//设置队列Q容量足够大</span></span><br><span class="line">	Q[++rear]=T;<span class="comment">//根结点入队</span></span><br><span class="line">	BiTree p;</span><br><span class="line">	<span class="keyword">while</span>(front&lt;rear) &#123;</span><br><span class="line">		p=Q[++front];<span class="comment">//出队</span></span><br><span class="line">		<span class="keyword">if</span>(p-&gt;lchild)</span><br><span class="line">			Q[++rear]=p-&gt;lchild;</span><br><span class="line">		<span class="keyword">if</span>(p-&gt;rchild)</span><br><span class="line">			Q[++rear]=p-&gt;rchild;</span><br><span class="line">		<span class="keyword">if</span>(front==last)&#123;</span><br><span class="line">			last=rear;</span><br><span class="line">			level++;</span><br><span class="line">		&#125; </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> level;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="5-统计二叉树中结点个数"><a href="#5-统计二叉树中结点个数" class="headerlink" title="5.统计二叉树中结点个数"></a>5.统计二叉树中结点个数</h3><p><font color="#000033" size="4">算法思想：如果是空树，递归结束，否则递归计算左子树的结点m，递归计算右子树结点n，返回（m+n+1）</font><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//统计二叉树中结点的个数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">count_node</span><span class="params">(BiTree T)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> m,n;</span><br><span class="line">	<span class="keyword">if</span>(T==<span class="literal">NULL</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	m=count_node(T-&gt;lchild);</span><br><span class="line">	n=count_node(T-&gt;rchild);</span><br><span class="line">	<span class="keyword">return</span> m+n+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="6-一棵二叉树中所有双分支结点的个数"><a href="#6-一棵二叉树中所有双分支结点的个数" class="headerlink" title="6.一棵二叉树中所有双分支结点的个数"></a>6.一棵二叉树中所有双分支结点的个数</h3><p><font color="#000033" size="4">算法思想：递归模型方f(b)<br>    若b=NULL:f(b)=0;若b为双分支结点：<br>    f(b)=f(b-&gt;lchild)+f(b-&gt;rchild)+1;<br>    若为其他情况，b即为单分支结点或叶子结点：f(b)=f(b-&gt;lchild)+f(b-&gt;rchild)<br></font><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">DsonNodes</span><span class="params">(BiTree b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(b==<span class="literal">NULL</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(b-&gt;lchild!=<span class="literal">NULL</span>&amp;&amp;b-&gt;rchild!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span> DsonNodes(b-&gt;lchild)+DsonNodes(b-&gt;rchild)+<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="keyword">return</span> DsonNodes(b-&gt;lchild)+DsonNodes(b-&gt;rchild);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="7-采用递归算法实现交换二叉树的左右子树"><a href="#7-采用递归算法实现交换二叉树的左右子树" class="headerlink" title="7.采用递归算法实现交换二叉树的左右子树"></a>7.采用递归算法实现交换二叉树的左右子树</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(BiTree b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(b)&#123;</span><br><span class="line">		swap(b-&gt;lchild);<span class="comment">//递归地交换左子树</span></span><br><span class="line">		swap(b-&gt;rchild);<span class="comment">//递归地交换右子树</span></span><br><span class="line">		temp=b-&gt;lchild;<span class="comment">//交换左右孩子结点</span></span><br><span class="line">		b-&gt;lchild=b-&gt;rchild;</span><br><span class="line">		l-&gt;rchild=temp;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="8-判断给定二叉树是否是完全二叉树"><a href="#8-判断给定二叉树是否是完全二叉树" class="headerlink" title="8.判断给定二叉树是否是完全二叉树"></a>8.判断给定二叉树是否是完全二叉树</h3><p><font color="red" size="4">注解:</font><font color="#000033" size="4">完全二叉树是一个高度为h，有n个结点的二叉树，当且仅当其每一个结点都与高度为h的满二叉树中编号为1到n的结点一一对应时，称为完全二叉树。特点为：<br></font></p>
+<ol>
+<li>若i&lt;=n/2向下取整，则结点i为分支结点，否则为叶子结点。</li>
+<li>叶子结点只可能在层次最大的两层上出现。对于最大层次中的叶子结点，都依次排列在该层最左边的位置上</li>
+<li>如果有度为1的结点，只可能有一个，且该结点只有左孩子2️而无右孩子</li>
+<li>按层序编号后，一旦出现某结点（编号为i）为叶子结点或只有左孩子结点，则编号大于i的结点均为叶子结点</li>
+<li>若n为奇数，则每个分支结点都有左子女和右子女；若n为偶数，则编号最大的分支结点（编号为n/2）只有左子女，没有右子女，其余分支结点左右子女都有。<br><br><font color="#000033" size="4">算法思想：采用层次遍历算法，将所有结点加入队列（包括空结点），当遇到空结点时，查看其后是否有非空结点，若有，则二叉树不是完全二叉树</font><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//判断是否是完全二叉树 </span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">IsComplete</span><span class="params">(BiTree T)</span></span>&#123;</span><br><span class="line">	LinkQueue Q;</span><br><span class="line">	InitQueue(Q);<span class="comment">//初始化辅助队列</span></span><br><span class="line">	<span class="keyword">if</span>(!T)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;<span class="comment">//空树为满二叉树 </span></span><br><span class="line">	BiTree p;</span><br><span class="line">	EnQueue(Q,T); <span class="comment">//根结点入队</span></span><br><span class="line">	<span class="keyword">while</span>(!IsEmpty(Q))&#123;</span><br><span class="line">		DeQueue(Q,p);<span class="comment">//队头元素出队</span></span><br><span class="line">		<span class="keyword">if</span>(p)&#123;<span class="comment">//结点非空，将其左右子树入队列 </span></span><br><span class="line">		EnQueue(Q,p-&gt;lchild);<span class="comment">//左右孩子都进栈，不管时候为空 </span></span><br><span class="line">		EnQueue(Q,p-&gt;rchild);			</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>&#123;<span class="comment">//结点为空，检查其后是否有非空结点 </span></span><br><span class="line">			<span class="keyword">while</span>(!IsEmpty(Q))&#123;</span><br><span class="line">				DeQueue(Q,p);</span><br><span class="line">				<span class="keyword">if</span>(p)		<span class="comment">//结点非空，则二叉树为非完全二叉树</span></span><br><span class="line">					<span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">			&#125;</span><br><span class="line">		&#125; 	</span><br><span class="line">	&#125; </span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="二叉树的遍历"><a href="#二叉树的遍历" class="headerlink" title="二叉树的遍历"></a>二叉树的遍历</h2><h3 id="1-非递归算法实现后序遍历（重要）"><a href="#1-非递归算法实现后序遍历（重要）" class="headerlink" title="1.非递归算法实现后序遍历（重要）"></a>1.非递归算法实现后序遍历（重要）</h3><p><font color="#000033" size="4">算法思想：因为后序非递归遍历二叉树的顺序是先访问左子树，在访问右子树，最后访问根结点。当用堆栈来存储结点，必须分清返回根结点是从左子树返回的，还是从右子树返回的。所以，使用辅助指针r，其指向最近访问过的结点。</font><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MaxSize 50</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">BiTNode</span>&#123;</span></span><br><span class="line">	<span class="keyword">char</span> data;<span class="comment">//数据域</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">BiTNode</span> *<span class="title">lchild</span>,*<span class="title">rchild</span>;</span><span class="comment">//左右指针 </span></span><br><span class="line">&#125;BiTNode,*BiTree;</span><br><span class="line"><span class="comment">//顺序栈的存储结构 </span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">	BiTree data[MaxSize];<span class="comment">//存放栈中元素 </span></span><br><span class="line">	<span class="keyword">int</span> top;<span class="comment">//栈顶指针 </span></span><br><span class="line">&#125;SqStack;</span><br><span class="line"><span class="comment">//进栈 </span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Push</span><span class="params">(SqStack &amp;S,BiTree x)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(S.top==MaxSize<span class="number">-1</span>)<span class="comment">//栈满，报错</span></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	S.data[++S.top]=x;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>; </span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">//出栈</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Pop</span><span class="params">(SqStack &amp;S,BiTree &amp;x)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(S.top==<span class="number">-1</span>)<span class="comment">//栈空，报错</span></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	x=S.data[S.top--];<span class="comment">//先出栈，指针再减1</span></span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>; </span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">IsEmpty</span><span class="params">(SqStack S)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(S.top==<span class="number">-1</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InitStack</span><span class="params">(SqStack &amp;S)</span></span>&#123;</span><br><span class="line">	S.top=<span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">GetTop</span><span class="params">(SqStack S,BiTree &amp;x)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(S.top==<span class="number">-1</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	x=S.data[S.top];</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">//非递归方法实现后序遍历</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postOrder</span><span class="params">(BiTree T)</span></span>&#123;</span><br><span class="line">	SqStack S;	</span><br><span class="line">	InitStack(S);</span><br><span class="line">	BiTree p=T;</span><br><span class="line">	BiTree r=<span class="literal">NULL</span>;</span><br><span class="line">	<span class="keyword">while</span>(p||!IsEmpty(S))&#123;</span><br><span class="line">		<span class="keyword">if</span>(p)&#123;<span class="comment">//走到最左边 </span></span><br><span class="line">			Push(S,p);</span><br><span class="line">			p=p-&gt;lchild; </span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>&#123;		<span class="comment">//向右</span></span><br><span class="line">			GetTop(S,p);</span><br><span class="line">			<span class="keyword">if</span>(p-&gt;rchild&amp;&amp;p-&gt;rchild!=r)&#123;<span class="comment">//如果右子树存在，且没被访问过 </span></span><br><span class="line">				p=p-&gt;rchild;	<span class="comment">//转向右 </span></span><br><span class="line">				Push(S,p);		<span class="comment">//压入栈 </span></span><br><span class="line">				p=p-&gt;lchild;	<span class="comment">//再走最左 </span></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span>&#123;				<span class="comment">//否则，弹出结点并访问 </span></span><br><span class="line">				Pop(S,p); </span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"%c "</span>,p-&gt;data);</span><br><span class="line">				r=p;			<span class="comment">//记录最近访问过的结点</span></span><br><span class="line">				p=<span class="literal">NULL</span>;			<span class="comment">//结点访问完后，重置p指针 </span></span><br><span class="line">			&#125; 	</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">//采用先序遍历来建树 </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preCreateBiTree</span><span class="params">(BiTree &amp;T)</span></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> ch;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%c"</span>,&amp;ch);</span><br><span class="line">	<span class="keyword">if</span>(ch==<span class="string">'#'</span>)</span><br><span class="line">		T=<span class="literal">NULL</span>;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		T=(BiTree)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(BiTNode));</span><br><span class="line">		<span class="keyword">if</span>(!T)</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		T-&gt;data=ch;</span><br><span class="line">		preCreateBiTree(T-&gt;lchild);</span><br><span class="line">		preCreateBiTree(T-&gt;rchild);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	BiTree T;</span><br><span class="line">	<span class="comment">//先序建立二叉树 </span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"输入先序序列，空为#\n"</span>);</span><br><span class="line">	preCreateBiTree(T);</span><br><span class="line">	<span class="comment">//递归中序遍历二叉树 </span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"非递归后序遍历二叉树 :\n"</span>);</span><br><span class="line">	postOrder(T);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><font color="#000033" size="4">注解：当访问一个结点<em>p时。栈中结点恰好是</em>p结点所有的祖先。从栈底到栈顶结点再加上<em>p结点，刚好构成从根结点</em>p结点的一条路径。在很多算法设计中都利用这一特性求解，如求根结点到某结点的路径、求两个结点的最近公共祖先等都可以利用这个思路来实现。</font></p>
+<h3 id="2-实现二叉树自下向上，自右向左遍历"><a href="#2-实现二叉树自下向上，自右向左遍历" class="headerlink" title="2.实现二叉树自下向上，自右向左遍历"></a>2.实现二叉树自下向上，自右向左遍历</h3><p><font color="#000033" size="4">算法思想：利用层次原有的遍历算法，出队的同时将各结点指针入栈，在所有结点入栈之后再从栈顶开始依次访问</font><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MaxSize 50</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">BiTNode</span>&#123;</span></span><br><span class="line">	<span class="keyword">char</span> data;<span class="comment">//数据域</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">BiTNode</span> *<span class="title">lchild</span>,*<span class="title">rchild</span>;</span><span class="comment">//左右指针 </span></span><br><span class="line">&#125;BiTNode,*BiTree;</span><br><span class="line"><span class="comment">//顺序栈的存储结构 </span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">	BiTree data[MaxSize];<span class="comment">//存放栈中元素 </span></span><br><span class="line">	<span class="keyword">int</span> top;<span class="comment">//栈顶指针 </span></span><br><span class="line">&#125;SqStack;</span><br><span class="line"><span class="comment">//定义队列结构体 </span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LinkNode</span>	&#123;</span></span><br><span class="line">	BiTree data;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">LinkNode</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125;LinkNode;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">	LinkNode *front,*rear;</span><br><span class="line">&#125;LinkQueue;</span><br><span class="line"></span><br><span class="line"><span class="comment">//进栈 </span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Push</span><span class="params">(SqStack &amp;S,BiTree x)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(S.top==MaxSize<span class="number">-1</span>)<span class="comment">//栈满，报错</span></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	S.data[++S.top]=x;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>; </span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">//出栈</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Pop</span><span class="params">(SqStack &amp;S,BiTree &amp;x)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(S.top==<span class="number">-1</span>)<span class="comment">//栈空，报错</span></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	x=S.data[S.top--];<span class="comment">//先出栈，指针再减1</span></span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>; </span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">IsEmpty</span><span class="params">(SqStack S)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(S.top==<span class="number">-1</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InitStack</span><span class="params">(SqStack &amp;S)</span></span>&#123;</span><br><span class="line">	S.top=<span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InitQueue</span><span class="params">(LinkQueue &amp;Q)</span></span>&#123;</span><br><span class="line">	Q.front=Q.rear=(LinkNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LinkNode));<span class="comment">//建立头结点</span></span><br><span class="line">	Q.front-&gt;next=<span class="literal">NULL</span>;<span class="comment">//初始化为空 </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//判断队空</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">IsEmpty</span><span class="params">(LinkQueue Q)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(Q.front==Q.rear)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">//入队</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">EnQueue</span><span class="params">(LinkQueue &amp;Q,BiTree x)</span></span>&#123;</span><br><span class="line">	LinkNode *s=(LinkNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LinkNode));</span><br><span class="line">	s-&gt;data=x;</span><br><span class="line">	s-&gt;next=<span class="literal">NULL</span>;<span class="comment">//创建新结点，插入到链尾</span></span><br><span class="line">	Q.rear-&gt;next=s;</span><br><span class="line">	Q.rear=s; </span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">//出队</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">DeQueue</span><span class="params">(LinkQueue &amp;Q,BiTree &amp;x)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(Q.front==Q.rear)<span class="comment">//空队</span></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	LinkNode *p=Q.front-&gt;next; </span><br><span class="line">	x=p-&gt;data;</span><br><span class="line">	Q.front-&gt;next=p-&gt;next;</span><br><span class="line">	<span class="keyword">if</span>(Q.rear==p)</span><br><span class="line">		Q.rear=Q.front;<span class="comment">//若原队列中只有一个结点，删除后变空</span></span><br><span class="line">	<span class="built_in">free</span>(p);</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>; </span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InverseLevel</span><span class="params">(BiTree T)</span></span>&#123;</span><br><span class="line">	SqStack S;</span><br><span class="line">	LinkQueue Q;</span><br><span class="line"><span class="comment">//	BiTree p;</span></span><br><span class="line">	<span class="keyword">if</span>(T!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">		InitStack(S);</span><br><span class="line">		InitQueue(Q);</span><br><span class="line">		EnQueue(Q,T);</span><br><span class="line">		<span class="keyword">while</span>(!IsEmpty(Q))&#123;</span><br><span class="line">			DeQueue(Q,T);</span><br><span class="line">			Push(S,T);</span><br><span class="line">			<span class="keyword">if</span>(T-&gt;lchild)</span><br><span class="line">				EnQueue(Q,T-&gt;lchild);</span><br><span class="line">			<span class="keyword">if</span>(T-&gt;rchild)</span><br><span class="line">				EnQueue(Q,T-&gt;rchild);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">while</span>(!IsEmpty(S))&#123;</span><br><span class="line">			Pop(S,T);</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%c "</span>,T-&gt;data);</span><br><span class="line">		&#125; </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//采用先序遍历来建树 </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preCreateBiTree</span><span class="params">(BiTree &amp;T)</span></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> ch;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%c"</span>,&amp;ch);</span><br><span class="line">	<span class="keyword">if</span>(ch==<span class="string">'#'</span>)</span><br><span class="line">		T=<span class="literal">NULL</span>;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		T=(BiTree)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(BiTNode));</span><br><span class="line">		<span class="keyword">if</span>(!T)</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		T-&gt;data=ch;</span><br><span class="line">		preCreateBiTree(T-&gt;lchild);</span><br><span class="line">		preCreateBiTree(T-&gt;rchild);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	BiTree T;</span><br><span class="line">	<span class="comment">//先序建立二叉树 </span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"输入先序序列，空为#\n"</span>);</span><br><span class="line">	preCreateBiTree(T);</span><br><span class="line">	InverseLevel(T); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="二叉排序树问题"><a href="#二叉排序树问题" class="headerlink" title="二叉排序树问题"></a>二叉排序树问题</h2><h3 id="1-求出指定结点在给定二叉排序树中的层次"><a href="#1-求出指定结点在给定二叉排序树中的层次" class="headerlink" title="1.求出指定结点在给定二叉排序树中的层次"></a>1.求出指定结点在给定二叉排序树中的层次</h3><p><font color="#000033" size="4">算法思想：采用二叉排序树非递归查找算法，用n保存查找层次，每查找一次，n就加1</font><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">level</span><span class="params">(BiTree bt,BSTNode *p)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n=<span class="number">0</span>;</span><br><span class="line">	BiTree t=bt;</span><br><span class="line">	<span class="keyword">if</span>(bt!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">		n++;</span><br><span class="line">		<span class="keyword">while</span>(t-&gt;data!=p-&gt;data)&#123;</span><br><span class="line">			<span class="keyword">if</span>(t-&gt;data&lt;p-&gt;data)</span><br><span class="line">				t=t-&gt;rchild;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				t=t-&gt;lchild;</span><br><span class="line">			n++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-求给定二叉排序树中最小和最大的关键字"><a href="#2-求给定二叉排序树中最小和最大的关键字" class="headerlink" title="2.求给定二叉排序树中最小和最大的关键字"></a>2.求给定二叉排序树中最小和最大的关键字</h3><p><font color="#000033" size="4">算法思想：最左下结点即为关键字最小结点，最右下结点即为关键字最大结点</font><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">keyType <span class="title">minKey</span><span class="params">(BSTNode *bt)</span></span>&#123;</span><br><span class="line">	<span class="keyword">while</span>(bt-&gt;lchild!=<span class="literal">NULL</span>)</span><br><span class="line">		bt=bt-&gt;lchild;</span><br><span class="line">	<span class="keyword">return</span> bt-&gt;data;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">keyType <span class="title">maxKey</span><span class="params">(BSTNode *bt)</span></span>&#123;</span><br><span class="line">	<span class="keyword">while</span>(bt-&gt;rchild!=<span class="literal">NULL</span>)</span><br><span class="line">		bt=bt-&gt;rchild;</span><br><span class="line">	<span class="keyword">return</span> bt-&gt;data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-从大到小输出二叉排序树中所有值不小于k的关键字"><a href="#3-从大到小输出二叉排序树中所有值不小于k的关键字" class="headerlink" title="3.从大到小输出二叉排序树中所有值不小于k的关键字"></a>3.从大到小输出二叉排序树中所有值不小于k的关键字</h3><p><font color="#000033" size="4">算法思想：由二叉排序树的性质可知，右子树所有结点值均大于根结点值，左子树中所有结点值均小于根结点值。为了从大到小输出，先遍历右子树，再访问根结点，再遍历右子树。</font><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">OutPut</span><span class="params">(BiTNode *bt,keyType k)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(bt==<span class="literal">NULL</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span> ;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(bt-&gt;rchild!=<span class="literal">NULL</span>)</span><br><span class="line">		OutPut(bt-&gt;rchild,k);		<span class="comment">//递归输出右子树结点 </span></span><br><span class="line">	<span class="keyword">if</span>(bt-&gt;data&gt;=k)</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d "</span>,bt-&gt;data);		<span class="comment">//只输出大于等于k的结点值 </span></span><br><span class="line">	<span class="keyword">if</span>(bt-&gt;lchild!=<span class="literal">NULL</span>)</span><br><span class="line">		OutPut(bt-&gt;lchild,k);		<span class="comment">//递归输出左子树的结点 </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2019年03月10日 15:42</p>
+        <p>原始链接： <a class="post-url" href="/2019/03/08/树的算法题集锦/" title="树的算法题集锦">https://sunflowerwen.github.io/2019/03/08/树的算法题集锦/</a></p>
+        <footer>
+            <a href="https://sunflowerwen.github.io">
+                <img src="/images/logo0.png" alt="ZhangYuansheng">
+                ZhangYuansheng
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我喝水~~~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/weixin.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/weixin.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/zhifubao.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sunflowerwen.github.io/2019/03/08/树的算法题集锦/&title=《树的算法题集锦》 — SunFlowerWen&pic=img/2019/dataStruct/sx.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sunflowerwen.github.io/2019/03/08/树的算法题集锦/&title=《树的算法题集锦》 — SunFlowerWen&source=我是向日葵，开心时，向着太阳，我不开心时，嗑瓜子" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sunflowerwen.github.io/2019/03/08/树的算法题集锦/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《树的算法题集锦》 — SunFlowerWen&url=https://sunflowerwen.github.io/2019/03/08/树的算法题集锦/&via=https://sunflowerwen.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sunflowerwen.github.io/2019/03/08/树的算法题集锦/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://sunflowerwen.github.io/2019/03/08/树的算法题集锦/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/c语言/" class="color4">c语言</a>
+      
+    <a href="/tags/算法/" class="color3">算法</a>
+      
+    <a href="/tags/二叉树/" class="color4">二叉树</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二叉树的基础问题"><span class="post-toc-text">二叉树的基础问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-建立一个二叉树"><span class="post-toc-text">1.建立一个二叉树</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-复制一棵二叉树"><span class="post-toc-text">2.复制一棵二叉树</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-递归计算二叉树的深度"><span class="post-toc-text">3.递归计算二叉树的深度</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-非递归计算二叉树的深度"><span class="post-toc-text">4.非递归计算二叉树的深度</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-统计二叉树中结点个数"><span class="post-toc-text">5.统计二叉树中结点个数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-一棵二叉树中所有双分支结点的个数"><span class="post-toc-text">6.一棵二叉树中所有双分支结点的个数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-采用递归算法实现交换二叉树的左右子树"><span class="post-toc-text">7.采用递归算法实现交换二叉树的左右子树</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8-判断给定二叉树是否是完全二叉树"><span class="post-toc-text">8.判断给定二叉树是否是完全二叉树</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二叉树的遍历"><span class="post-toc-text">二叉树的遍历</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-非递归算法实现后序遍历（重要）"><span class="post-toc-text">1.非递归算法实现后序遍历（重要）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-实现二叉树自下向上，自右向左遍历"><span class="post-toc-text">2.实现二叉树自下向上，自右向左遍历</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二叉排序树问题"><span class="post-toc-text">二叉排序树问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-求出指定结点在给定二叉排序树中的层次"><span class="post-toc-text">1.求出指定结点在给定二叉排序树中的层次</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-求给定二叉排序树中最小和最大的关键字"><span class="post-toc-text">2.求给定二叉排序树中最小和最大的关键字</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-从大到小输出二叉排序树中所有值不小于k的关键字"><span class="post-toc-text">3.从大到小输出二叉排序树中所有值不小于k的关键字</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2019/03/12/图/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          图
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2019/03/04/二叉排序树/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">二叉排序树</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="树的算法题集锦" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytxjYyi4';
+        var conf = 'prod_48a827102889e4f5d20616c9ac21153b';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+	<div class="outer">
+		<div id="footer-info" class="inner">
+			
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+			<p>
+				Powered by
+				<a href="http://hexo.io/" target="_blank">Hexo</a>
+				Theme
+				<a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+				&copy;
+				2019
+				ZhangYuansheng<br>
+			</p>
+		</div>
+	</div>
+	<div id="music_div">																		
+		<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=547606280&auto=0&height=32"></iframe>
+	</div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://sunflowerwen.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/2019学习/">2019学习</a><a class="category-link" href="/categories/2019我回来了/">2019我回来了</a><a class="category-link" href="/categories/java面试题/">java面试题</a><a class="category-link" href="/categories/必读/">必读</a><a class="category-link" href="/categories/数据结构/">数据结构</a><a class="category-link" href="/categories/疑难杂症/">疑难杂症</a><a class="category-link" href="/categories/莫名难受/">莫名难受</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/2019/" style="font-size: 13.33px;">2019</a> <a href="/tags/Adobe-flash-player/" style="font-size: 10px;">Adobe flash player</a> <a href="/tags/BUG/" style="font-size: 10px;">BUG</a> <a href="/tags/C语言/" style="font-size: 10px;">C语言</a> <a href="/tags/Office-2010/" style="font-size: 10px;">Office 2010</a> <a href="/tags/c语言/" style="font-size: 20px;">c语言</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/springmvc/" style="font-size: 10px;">springmvc</a> <a href="/tags/webService/" style="font-size: 10px;">webService</a> <a href="/tags/不要想/" style="font-size: 10px;">不要想</a> <a href="/tags/不要猜/" style="font-size: 10px;">不要猜</a> <a href="/tags/不要看/" style="font-size: 10px;">不要看</a> <a href="/tags/二叉排序树/" style="font-size: 10px;">二叉排序树</a> <a href="/tags/二叉树/" style="font-size: 10px;">二叉树</a> <a href="/tags/单链表/" style="font-size: 13.33px;">单链表</a> <a href="/tags/图/" style="font-size: 16.67px;">图</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a> <a href="/tags/感想/" style="font-size: 10px;">感想</a> <a href="/tags/技术/" style="font-size: 10px;">技术</a> <a href="/tags/有感而发/" style="font-size: 10px;">有感而发</a> <a href="/tags/未解决/" style="font-size: 10px;">未解决</a> <a href="/tags/栈和队列/" style="font-size: 10px;">栈和队列</a> <a href="/tags/树与二叉树/" style="font-size: 10px;">树与二叉树</a> <a href="/tags/框架/" style="font-size: 10px;">框架</a> <a href="/tags/积累/" style="font-size: 10px;">积累</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线索二叉树/" style="font-size: 10px;">线索二叉树</a> <a href="/tags/软件/" style="font-size: 13.33px;">软件</a> <a href="/tags/随心所想/" style="font-size: 10px;">随心所想</a> <a href="/tags/面试题/" style="font-size: 10px;">面试题</a> <a href="/tags/顺序表/" style="font-size: 13.33px;">顺序表</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/feeling">
+                    <i class="fa fa-feeling"></i><span>心得体会</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于我</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/2019/" style="font-size: 13.33px;">2019</a> <a href="/tags/Adobe-flash-player/" style="font-size: 10px;">Adobe flash player</a> <a href="/tags/BUG/" style="font-size: 10px;">BUG</a> <a href="/tags/C语言/" style="font-size: 10px;">C语言</a> <a href="/tags/Office-2010/" style="font-size: 10px;">Office 2010</a> <a href="/tags/c语言/" style="font-size: 20px;">c语言</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/springmvc/" style="font-size: 10px;">springmvc</a> <a href="/tags/webService/" style="font-size: 10px;">webService</a> <a href="/tags/不要想/" style="font-size: 10px;">不要想</a> <a href="/tags/不要猜/" style="font-size: 10px;">不要猜</a> <a href="/tags/不要看/" style="font-size: 10px;">不要看</a> <a href="/tags/二叉排序树/" style="font-size: 10px;">二叉排序树</a> <a href="/tags/二叉树/" style="font-size: 10px;">二叉树</a> <a href="/tags/单链表/" style="font-size: 13.33px;">单链表</a> <a href="/tags/图/" style="font-size: 16.67px;">图</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a> <a href="/tags/感想/" style="font-size: 10px;">感想</a> <a href="/tags/技术/" style="font-size: 10px;">技术</a> <a href="/tags/有感而发/" style="font-size: 10px;">有感而发</a> <a href="/tags/未解决/" style="font-size: 10px;">未解决</a> <a href="/tags/栈和队列/" style="font-size: 10px;">栈和队列</a> <a href="/tags/树与二叉树/" style="font-size: 10px;">树与二叉树</a> <a href="/tags/框架/" style="font-size: 10px;">框架</a> <a href="/tags/积累/" style="font-size: 10px;">积累</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线索二叉树/" style="font-size: 10px;">线索二叉树</a> <a href="/tags/软件/" style="font-size: 13.33px;">软件</a> <a href="/tags/随心所想/" style="font-size: 10px;">随心所想</a> <a href="/tags/面试题/" style="font-size: 10px;">面试题</a> <a href="/tags/顺序表/" style="font-size: 13.33px;">顺序表</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
