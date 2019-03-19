@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>排序 | SunFlowerWen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="向日葵的太阳，张远生的博客" />
+  
+  <meta name="description" content="简述排序：就是重新排列表中的元素，使表中的元素满足按关键字递增或递减的过程。为了查找方便，通常要求计算机中的表示按关键字有序的。在排序算法中常常考虑算法的稳定性。算法的稳定性：如果待排序表中有两个元素Ri、Rj,其对应的关键字keyi=keyj,且在排序前Ri在Rj前面，如果使用某一排序算法后，Ri仍然在Rj的前面，则称这个排序算法是稳定的，否则称排序算法是不稳定的。需要注意的是，算法是否具有稳定">
+<meta name="keywords" content="c语言,算法,排序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="排序">
+<meta property="og:url" content="https://sunflowerwen.github.io/2019/03/17/排序/index.html">
+<meta property="og:site_name" content="SunFlowerWen">
+<meta property="og:description" content="简述排序：就是重新排列表中的元素，使表中的元素满足按关键字递增或递减的过程。为了查找方便，通常要求计算机中的表示按关键字有序的。在排序算法中常常考虑算法的稳定性。算法的稳定性：如果待排序表中有两个元素Ri、Rj,其对应的关键字keyi=keyj,且在排序前Ri在Rj前面，如果使用某一排序算法后，Ri仍然在Rj的前面，则称这个排序算法是稳定的，否则称排序算法是不稳定的。需要注意的是，算法是否具有稳定">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://sunflowerwen.github.io/img/2019/dataStruct/sort1.PNG">
+<meta property="og:image" content="https://sunflowerwen.github.io/img/2019/dataStruct/sort2.PNG">
+<meta property="og:image" content="https://sunflowerwen.github.io/img/2019/dataStruct/sort3.PNG">
+<meta property="og:image" content="https://sunflowerwen.github.io/img/2019/dataStruct/sort4.PNG">
+<meta property="og:updated_time" content="2019-03-19T06:42:50.936Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="排序">
+<meta name="twitter:description" content="简述排序：就是重新排列表中的元素，使表中的元素满足按关键字递增或递减的过程。为了查找方便，通常要求计算机中的表示按关键字有序的。在排序算法中常常考虑算法的稳定性。算法的稳定性：如果待排序表中有两个元素Ri、Rj,其对应的关键字keyi=keyj,且在排序前Ri在Rj前面，如果使用某一排序算法后，Ri仍然在Rj的前面，则称这个排序算法是稳定的，否则称排序算法是不稳定的。需要注意的是，算法是否具有稳定">
+<meta name="twitter:image" content="https://sunflowerwen.github.io/img/2019/dataStruct/sort1.PNG">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+	<div id="banner"></div>
+	<div id="header-outer">
+		<div id="header-menu" class="header-menu-pos animated">
+			<div class="header-menu-container">
+				<a href="/" class="left">
+					<span class="site-title">向日葵的太阳</span>
+				</a>
+				<nav id="header-menu-nav" class="right">
+					
+					<a 
+						href="
+						/
+						">
+						<i class="fa fa-home"></i>
+						<span>主页</span>
+					</a>
+					
+					<a 
+						href="
+						/archives
+						">
+						<i class="fa fa-archive"></i>
+						<span>归档</span>
+					</a>
+					
+					<a 
+						href="
+						/feeling
+						">
+						<i class="fa fa-feeling"></i>
+						<span>心得体会</span>
+					</a>
+					
+					<a 
+						href="
+						/about
+						">
+						<i class="fa fa-user"></i>
+						<span>关于我</span>
+					</a>
+					
+				</nav>
+				<a class="mobile-header-menu-button">
+					<i class="fa fa-bars"></i>
+				</a>
+			</div>
+		</div>
+		<div id="header-row">
+			<div id="logo">
+				<a href="/">
+					<img src="/images/logo0.png" alt="logo">
+				</a>
+			</div>
+			<div class="header-info">
+				<div id="header-title">
+					
+					<h2>
+                        向日葵的太阳
+                    </h2>
+					
+				</div>
+				<div id="header-description">
+					
+					<h3>
+                        the sun Sunflowers
+                    </h3>
+					
+				</div>
+			</div>
+			<nav class="header-nav">
+				<div class="social">
+					
+					<a title="
+						home"
+						
+						
+						href="
+						/
+						">
+						<i class="fa fa-home fa-2x"></i></a>
+					
+					<a title="
+						Github"
+						
+						target="_blank"
+						
+						href="
+						//github.com/sunFlowerWen
+						">
+						<i class="fa fa-github fa-2x"></i></a>
+					
+					<a title="
+						Weibo"
+						
+						target="_blank"
+						
+						href="
+						//weibo.com/5688132918/profile?topnav=1&wvr=6&is_all=1
+						">
+						<i class="fa fa-weibo fa-2x"></i></a>
+					
+					<a title="
+						QQ"
+						
+						target="_blank"
+						
+						href="
+						//user.qzone.qq.com/1731022407/main
+						">
+						<i class="fa fa-qq fa-2x"></i></a>
+					
+				</div>
+			</nav>
+		</div>
+	</div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-排序" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      排序
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/数据结构/">数据结构</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2019-03-17
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><p>排序：就是重新排列表中的元素，使表中的元素满足按关键字递增或递减的过程。为了查找方便，通常要求计算机中的表示按关键字有序的。在排序算法中常常考虑算法的稳定性。<br><br>算法的稳定性：如果待排序表中有两个元素Ri、Rj,其对应的关键字key<sub>i</sub>=key<sub>j</sub>,且在排序前Ri在Rj前面，如果使用某一排序算法后，Ri仍然在Rj的前面，则称这个排序算法是稳定的，否则称排序算法是不稳定的。需要注意的是，算法是否具有稳定性不能衡量一个算法的优劣，他主要是对算法的性质进行描述。</p>
+<h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><p>插入排序是一种简单直观对的排序方法，其基本思想在于每次将一个待排序的记录，按其关键字大小插入到前面已经排好序的子序列中，直到全部记录插入完成。</p>
+<h3 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h3><p>1). 查找出L(i)在L[1……i-1]中插入位置k.<br>2). 将L[k……i-1]中所有元素全部后移一个位置<br>3). 将L(i)复制到L(k).<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">void StraightInsertSort(ElemType A[],int n)&#123;</span><br><span class="line">	int i,j;</span><br><span class="line">	for(i=2;i&lt;=n;i++)&#123;	//依次将A[2]~A[n]插入到前面已排序序列 </span><br><span class="line">		if(A[i].key&lt;A[i-1].key)&#123;	//若A[i]的关键码小于其前驱，需将A[i]插入有序表 </span><br><span class="line">			A[0]=A[i];	//复制为哨兵，A[0]之前不存放元素</span><br><span class="line">			for(j=i-1;A[0].key&lt;A[j].key;--j)</span><br><span class="line">				A[j+1]=A[j];	//从后开始挪位</span><br><span class="line">			A[j+1]=A[0];	//复制到插入位置 </span><br><span class="line">		&#125; </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><font color="#000033" size="4">    直接插入排序，适用于顺序存储和链式存储的线性表，时间复杂度为 O(n^2),空间复杂度为O(1),稳定 </font></p>
+<h3 id="折半插入排序"><a href="#折半插入排序" class="headerlink" title="折半插入排序"></a>折半插入排序</h3><p>折半插入排序：是折半查找出元素的待插入位置，然后再统一的移动待插入位置之后的所有元素，当排序表为顺序存储的线性表时，可以对排序采用折半插入排序。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">	折半插入排序，适用于顺序存储，时间复杂度为 O(n^2),空间复杂度为O(1),稳定 </span><br><span class="line">*/</span><br><span class="line">void BinaryInsertSort(ElemType A[],int n)&#123;</span><br><span class="line">	int i,j,low,high,mid;</span><br><span class="line">	for(i=2;i&lt;=n;i++)&#123;	//依次将A[2]~A[n]插入到前面已排序序列 </span><br><span class="line">		A[0]=A[i];		//将A[i]暂存到A[0]</span><br><span class="line">		low=1;high=i-1;	//设置折半查找的范围</span><br><span class="line">		while(low&lt;=high)&#123;</span><br><span class="line">			mid=(low+high)/2;</span><br><span class="line">			if(A[mid].key&gt;A[0].key)</span><br><span class="line">				high=mid-1;		//查找左半子表 </span><br><span class="line">			else</span><br><span class="line">				low=mid+1;		//查找右半子表 </span><br><span class="line">		&#125;</span><br><span class="line">		for(j=i-1;j&gt;=high+1;--j)		//移动</span><br><span class="line">			A[j+1]=A[j];		//插入操作</span><br><span class="line">		A[high+1]=A[0]; </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h3><p>从前面两种排序可以看出，直接插入排序算法适用于基本有序的排序表和数据量不大的排序表。基于这两点，提出了希尔排序，又称为缩小增量排序。<br>希尔排序的基本思想是：先将待排序表分割成若干个形如L[i,i+d,i+2d,……，i+kd]的“特殊”子表，分别进行直接插入排序，当整个表中元素已呈“基本有序”时，再对全体记录进行一次直接插入排序。过程是：先取一个小于n的步长d1,把表中全部记录分成d1个组，所有距离为d1的倍数的记录放在同一个组中，在各组中已放在同一组中，再进行直接插入排序，由于此时已经具有较好的局部有序性，故可以很快得到最终结果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">	希尔排序，仅适用于顺序存储，最坏的时间复杂度为 O(n^2),空间复杂度为O(1),不稳定 </span><br><span class="line">*/</span><br><span class="line">void ShellSort(ElemType A[],int n)&#123;</span><br><span class="line">	//对顺序表做希尔插入排序,本算法和直接插入排序相比，做了以下修改</span><br><span class="line">	//1.前后记录位置的增量是dk，不是1</span><br><span class="line">	//2.r[0]只是暂存单元，不是哨兵，当j&lt;0时，插入位置已到</span><br><span class="line">	int dk,i,j; </span><br><span class="line">	for(dk=n/2;dk&gt;=1;dk=dk/2)&#123;		//步长变化 </span><br><span class="line">		for(i=dk+1;i&lt;=n;++i)&#123;</span><br><span class="line">			if(A[i].key&lt;A[i-dk].key)&#123;	//需将A[i]插入有序增量子表 </span><br><span class="line">				A[0]=A[i];				//暂存在A[0]</span><br><span class="line">				for(j=i-dk;j&gt;0&amp;&amp;A[0].key&lt;A[j].key;j-=dk)</span><br><span class="line">					A[j+dk]=A[j];		//插入</span><br><span class="line">				A[j+dk]=A[0]; </span><br><span class="line">			&#125;</span><br><span class="line">		&#125; </span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="c实现"><a href="#c实现" class="headerlink" title="c实现"></a>c实现</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ElemType int</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	直接插入排序，适用于顺序存储和链式存储的线性表，时间复杂度为 O(n^2),空间复杂度为O(1),稳定 </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">StraightSort</span><span class="params">(ElemType A[],<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i,j;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;=n;i++)&#123;	<span class="comment">//依次将A[2]~A[n]插入到前面已排序序列 </span></span><br><span class="line">		<span class="keyword">if</span>(A[i]&lt;A[i<span class="number">-1</span>])&#123;	<span class="comment">//若A[i]的关键码小于其前驱，需将A[i]插入有序表 </span></span><br><span class="line">			A[<span class="number">0</span>]=A[i];	<span class="comment">//复制为哨兵，A[0]之前不存放元素</span></span><br><span class="line">			<span class="keyword">for</span>(j=i<span class="number">-1</span>;A[<span class="number">0</span>]&lt;A[j];--j)</span><br><span class="line">				A[j+<span class="number">1</span>]=A[j];	<span class="comment">//从后开始挪位</span></span><br><span class="line">			A[j+<span class="number">1</span>]=A[<span class="number">0</span>];	<span class="comment">//复制到插入位置 </span></span><br><span class="line">		&#125; </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	折半插入排序，适用于顺序存储，时间复杂度为 O(n^2),空间复杂度为O(1),稳定 </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BinaryInsertSort</span><span class="params">(ElemType A[],<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i,j,low,high,mid;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;=n;i++)&#123;	<span class="comment">//依次将A[2]~A[n]插入到前面已排序序列 </span></span><br><span class="line">		A[<span class="number">0</span>]=A[i];		<span class="comment">//将A[i]暂存到A[0]</span></span><br><span class="line">		low=<span class="number">1</span>;high=i<span class="number">-1</span>;	<span class="comment">//设置折半查找的范围</span></span><br><span class="line">		<span class="keyword">while</span>(low&lt;=high)&#123;</span><br><span class="line">			mid=(low+high)/<span class="number">2</span>;</span><br><span class="line">			<span class="keyword">if</span>(A[mid]&gt;A[<span class="number">0</span>])</span><br><span class="line">				high=mid<span class="number">-1</span>;		<span class="comment">//查找左半子表 </span></span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				low=mid+<span class="number">1</span>;		<span class="comment">//查找右半子表 </span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(j=i<span class="number">-1</span>;j&gt;=high+<span class="number">1</span>;--j)		<span class="comment">//移动</span></span><br><span class="line">			A[j+<span class="number">1</span>]=A[j];		<span class="comment">//插入操作</span></span><br><span class="line">		A[high+<span class="number">1</span>]=A[<span class="number">0</span>]; </span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	希尔排序，仅适用于顺序存储，最坏的时间复杂度为 O(n^2),空间复杂度为O(1),不稳定 </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ShellSort</span><span class="params">(ElemType A[],<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="comment">//对顺序表做希尔插入排序,本算法和直接插入排序相比，做了以下修改</span></span><br><span class="line">	<span class="comment">//1.前后记录位置的增量是dk，不是1</span></span><br><span class="line">	<span class="comment">//2.r[0]只是暂存单元，不是哨兵，当j&lt;0时，插入位置已到</span></span><br><span class="line">	<span class="keyword">int</span> dk,i,j; </span><br><span class="line">	<span class="keyword">for</span>(dk=n/<span class="number">2</span>;dk&gt;=<span class="number">1</span>;dk=dk/<span class="number">2</span>)&#123;		<span class="comment">//步长变化 </span></span><br><span class="line">		<span class="keyword">for</span>(i=dk+<span class="number">1</span>;i&lt;=n;++i)&#123;</span><br><span class="line">			<span class="keyword">if</span>(A[i]&lt;A[i-dk])&#123;	<span class="comment">//需将A[i]插入有序增量子表 </span></span><br><span class="line">				A[<span class="number">0</span>]=A[i];				<span class="comment">//暂存在A[0]</span></span><br><span class="line">				<span class="keyword">for</span>(j=i-dk;j&gt;<span class="number">0</span>&amp;&amp;A[<span class="number">0</span>]&lt;A[j];j-=dk)</span><br><span class="line">					A[j+dk]=A[j];		<span class="comment">//插入</span></span><br><span class="line">				A[j+dk]=A[<span class="number">0</span>]; </span><br><span class="line">			&#125;</span><br><span class="line">		&#125; </span><br><span class="line">	&#125; </span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> A[]=&#123;<span class="number">0</span>,<span class="number">48</span>,<span class="number">292</span>,<span class="number">989</span>,<span class="number">2895</span>,<span class="number">15</span>,<span class="number">696</span>,<span class="number">2</span>,<span class="number">10</span>,<span class="number">25</span>,<span class="number">233</span>&#125;;</span><br><span class="line">	StraightSort(A,<span class="number">11</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"直接插入排序的结果：\n"</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;<span class="number">11</span>;i++)</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d "</span>,A[i]);</span><br><span class="line">	<span class="keyword">int</span> B[]=&#123;<span class="number">0</span>,<span class="number">48</span>,<span class="number">292</span>,<span class="number">989</span>,<span class="number">2895</span>,<span class="number">15</span>,<span class="number">696</span>,<span class="number">2</span>,<span class="number">10</span>,<span class="number">25</span>,<span class="number">233</span>&#125;;</span><br><span class="line">	BinaryInsertSort(B,<span class="number">11</span>); </span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"\n折半插入排序的结果：\n"</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;<span class="number">11</span>;i++)</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d "</span>,B[i]); </span><br><span class="line">	<span class="keyword">int</span> C[]=&#123;<span class="number">0</span>,<span class="number">48</span>,<span class="number">292</span>,<span class="number">989</span>,<span class="number">2895</span>,<span class="number">15</span>,<span class="number">696</span>,<span class="number">2</span>,<span class="number">10</span>,<span class="number">25</span>,<span class="number">233</span>&#125;;</span><br><span class="line">	ShellSort(C,<span class="number">11</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"\n希尔排序的结果：\n"</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;<span class="number">11</span>;i++)</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d "</span>,C[i]); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/img/2019/dataStruct/sort1.PNG" alt="运行结果"></p>
+<h2 id="交换排序"><a href="#交换排序" class="headerlink" title="交换排序"></a>交换排序</h2><p>所谓的交换，就是根据序列中两个元素关键字的比较结果来对换着两个记录在序列中的位置。</p>
+<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p>基本思想是：假设待排序表长为n,从后往前（或从前往后）两两比较相邻元素的值，若为逆序，则交换他们，直到序列比较完。我们称它为一趟冒泡，结果将最小的元素交换到待排序列的第一个位置。下一趟冒泡时，前一趟确定的最小元素不在参与比较，待排序列减少一个元素，每趟冒泡的结果吧序列中的最小元素放到序列的最终位置，这样最多做n-1趟冒泡就能包把所有元素排好序。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">	冒泡排序，平均时间复杂度为O(n^2),是一个稳定的排序算法 </span><br><span class="line">*/</span><br><span class="line">void BublleSort(ElemType A[],int n)&#123;</span><br><span class="line">	bool flag;</span><br><span class="line">	ElemType temp;</span><br><span class="line">	for(i=0;i&lt;n-1;i++)&#123;</span><br><span class="line">		flag=false;		//表示本趟冒泡是否发生交换的标志</span><br><span class="line">		for(j=n-1;j&gt;i;j--)&#123;</span><br><span class="line">			if(A[j-1].key&gt;A[j].key)&#123;	//若为逆序，交换 </span><br><span class="line">				 temp=A[j-1];</span><br><span class="line">				 A[j-1]=A[j];</span><br><span class="line">				 A[j]=temp;</span><br><span class="line">				 flag=true;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; </span><br><span class="line">		if(flag==false)			//本趟遍历后没有发生交换，说明表已经有序</span><br><span class="line">			return ; </span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><p>快速排序是对冒泡排序的一中改进。其基本思想是基于<code>分治法</code>：在待排序表L[1……n]中任取一个元素pivot作为基准，通过一趟排序将待排序表划分为独立的两部分L[1……k-1]和L[k+1……n],使得L[1……k-1]中所有元素小于pivot，L[k+1……n]中所有元素大于或等于pivot，则pivot放在了其最终位置L(k)上，这个过程称作一趟快速排序。而后分别递归地对两个子表重复上述过程，直至每部分只有一个元素或空为止，即所有元素放在其最终位置上。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">	快速排序，平均时间复杂度为O(log2n),空间复杂度O(log2n),是一个不稳定的排序算法 </span><br><span class="line">*/</span><br><span class="line">int Partition(ElemType A[],int low,int high)&#123;</span><br><span class="line">	//快速排序的划分算法</span><br><span class="line">	ElemType pivot=A[low];		//将当前表中第一个元素设为枢轴，对表进行划分</span><br><span class="line">	while(low&lt;high)&#123;			//循环跳出条件</span><br><span class="line">		while(low&lt;high&amp;&amp;A[high]&gt;=pivot)</span><br><span class="line">			--high;</span><br><span class="line">		A[low]=A[high];	//将比枢轴值小的元素移动到左端</span><br><span class="line">		while(low&lt;high&amp;&amp;A[low]&lt;=pivot)</span><br><span class="line">			++low;</span><br><span class="line">		A[high]=A[low];		//将比枢轴值大的元素移到右端 </span><br><span class="line">	&#125;				</span><br><span class="line"> 	A[low]=pivot;		//将枢轴元素存放到最终位置</span><br><span class="line">	 return low;	//返回存在枢轴的最终位置 </span><br><span class="line">&#125;</span><br><span class="line">void QuickSort(ElemType A[],int low,int high)&#123;</span><br><span class="line">	if(low&lt;high)&#123;	//递归跳出的条件 </span><br><span class="line">		//Partition()就是划分操作，将表A[low……high]划分为满足上诉条件的两个子表 </span><br><span class="line">		int pivotpos=Partition(A,low,high);</span><br><span class="line">		QuickSort(A,low,pivotpos-1);</span><br><span class="line">		QuickSort(A,pivotpos+1,high);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="c语言实现"><a href="#c语言实现" class="headerlink" title="c语言实现"></a>c语言实现</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ElemType int</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	冒泡排序，平均时间复杂度为O(n^2),是一个稳定的排序算法 </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BublleSort</span><span class="params">(ElemType A[],<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">bool</span> flag;</span><br><span class="line">	ElemType temp;</span><br><span class="line">	<span class="keyword">int</span> i,j;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n<span class="number">-1</span>;i++)&#123;</span><br><span class="line">		flag=<span class="literal">false</span>;		<span class="comment">//表示本趟冒泡是否发生交换的标志</span></span><br><span class="line">		<span class="keyword">for</span>(j=n<span class="number">-1</span>;j&gt;i;j--)&#123;</span><br><span class="line">			<span class="keyword">if</span>(A[j<span class="number">-1</span>]&gt;A[j])&#123;	<span class="comment">//若为逆序，交换 </span></span><br><span class="line">				 temp=A[j<span class="number">-1</span>];</span><br><span class="line">				 A[j<span class="number">-1</span>]=A[j];</span><br><span class="line">				 A[j]=temp;</span><br><span class="line">				 flag=<span class="literal">true</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; </span><br><span class="line">		<span class="keyword">if</span>(flag==<span class="literal">false</span>)			<span class="comment">//本趟遍历后没有发生交换，说明表已经有序</span></span><br><span class="line">			<span class="keyword">return</span> ; </span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	快速排序，平均时间复杂度为O(log2n),空间复杂度O(log2n),是一个不稳定的排序算法 </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Partition</span><span class="params">(ElemType A[],<span class="keyword">int</span> low,<span class="keyword">int</span> high)</span></span>&#123;</span><br><span class="line">	<span class="comment">//快速排序的划分算法</span></span><br><span class="line">	ElemType pivot=A[low];		<span class="comment">//将当前表中第一个元素设为枢轴，对表进行划分</span></span><br><span class="line">	<span class="keyword">while</span>(low&lt;high)&#123;			<span class="comment">//循环跳出条件</span></span><br><span class="line">		<span class="keyword">while</span>(low&lt;high&amp;&amp;A[high]&gt;=pivot)</span><br><span class="line">			--high;</span><br><span class="line">		A[low]=A[high];	<span class="comment">//将比枢轴值小的元素移动到左端</span></span><br><span class="line">		<span class="keyword">while</span>(low&lt;high&amp;&amp;A[low]&lt;=pivot)</span><br><span class="line">			++low;</span><br><span class="line">		A[high]=A[low];		<span class="comment">//将比枢轴值大的元素移到右端 </span></span><br><span class="line">	&#125;				</span><br><span class="line"> 	A[low]=pivot;		<span class="comment">//将枢轴元素存放到最终位置</span></span><br><span class="line">	 <span class="keyword">return</span> low;	<span class="comment">//返回存在枢轴的最终位置 </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSort</span><span class="params">(ElemType A[],<span class="keyword">int</span> low,<span class="keyword">int</span> high)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(low&lt;high)&#123;	<span class="comment">//递归跳出的条件 </span></span><br><span class="line">		<span class="comment">//Partition()就是划分操作，将表A[low……high]划分为满足上诉条件的两个子表 </span></span><br><span class="line">		<span class="keyword">int</span> pivotpos=Partition(A,low,high);</span><br><span class="line">		QuickSort(A,low,pivotpos<span class="number">-1</span>);</span><br><span class="line">		QuickSort(A,pivotpos+<span class="number">1</span>,high);</span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> A[]=&#123;<span class="number">48</span>,<span class="number">292</span>,<span class="number">989</span>,<span class="number">2895</span>,<span class="number">15</span>,<span class="number">696</span>,<span class="number">2</span>,<span class="number">10</span>,<span class="number">25</span>,<span class="number">233</span>&#125;;</span><br><span class="line">	BublleSort(A,<span class="number">10</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"冒泡排序的结果：\n"</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d "</span>,A[i]);</span><br><span class="line">	<span class="keyword">int</span> B[]=&#123;<span class="number">48</span>,<span class="number">292</span>,<span class="number">989</span>,<span class="number">2895</span>,<span class="number">15</span>,<span class="number">696</span>,<span class="number">2</span>,<span class="number">10</span>,<span class="number">25</span>,<span class="number">233</span>&#125;;</span><br><span class="line">	QuickSort(B,<span class="number">0</span>,<span class="number">10</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"\n快速排序的结果：\n"</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d "</span>,B[i]);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/img/2019/dataStruct/sort2.PNG" alt="运行结果"></p>
+<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><p>选择排序的基本思想是：每一趟（例如第i趟）在后面n-i+1(i=1,2,……，n-1)个待排序元素中选取关键字最小的元素，作为有序子序列的第i个元素，知道第n-1趟做完，待排序元素只剩下1个，就不用再选了。选择排序中堆排序算法效率更高。</p>
+<h3 id="简单选择排序"><a href="#简单选择排序" class="headerlink" title="简单选择排序"></a>简单选择排序</h3><p>基本思想：假设排序表为L[1……n],第i趟排序即从L[i……n]中选择关键字最小的元素与L（i）交换，每一趟排序可以确定一个元素的最终位置，这样经过n-1趟排序就可以是的整个排序表有序。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">	简单选择排序，时间复杂度为O(n^2),空间复杂度为O(1),是一个不稳定的排序 </span><br><span class="line">*/</span><br><span class="line">void SelectSort(ElemType A[],int n)&#123;</span><br><span class="line">	int i,j,min;</span><br><span class="line">	ElemType temp;</span><br><span class="line">	for(i=0;i&lt;n-1;i++)&#123;</span><br><span class="line">		min=i;</span><br><span class="line">		for(j=i+1;j&lt;n;j++)</span><br><span class="line">			if(A[j]&lt;A[min])</span><br><span class="line">				min=j;		//更新最小元素的位置</span><br><span class="line">		if(min!=i)&#123;			//如果最小的值的小标不是i了，则交换元素 </span><br><span class="line">			temp=A[i];</span><br><span class="line">			A[i]=A[min];</span><br><span class="line">			A[min]=temp;	</span><br><span class="line">		&#125; </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h3><p>堆排序是一种树形选择排序方法，他的特点是：在排序过程中，将L[1……n]看成是一棵完全二叉树的顺序存储结构，利用完全二叉树中双亲结点和孩子结点之间内在关系，在当前无序区中选择关键字最大（或最小）的元素。<br>堆的定义：<br>①L(i)&lt;=L(2i)且L(i)&lt;=L(2i+1)<br>②L(i)&gt;=L(2i)且L(i)&gt;=L(2i+1)(1=&lt;i&lt;=n/1向下取整）<br>满足第一种情况是小根堆，满足第二种情况是大根堆。<br>建立大根堆的算法为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">	堆排序，时间复杂度为O(nlog2n),空间复杂度为O(1),是一个不稳定的排序 </span><br><span class="line">*/</span><br><span class="line">//建立大根堆</span><br><span class="line">void AdjustDown(ElemType A[],int k,int len);//调整k的值 </span><br><span class="line">void BuildMaxHeap(ElemType A[],int len)&#123;</span><br><span class="line">	for(int i=len/2;i&gt;0;i--)		//从i=[n/2]~1反复调整堆</span><br><span class="line">		AdjustDown(A,i,len); </span><br><span class="line">&#125; </span><br><span class="line">void AdjustDown(ElemType A[],int k,int len)&#123;</span><br><span class="line">	//将元素k向下进行调整</span><br><span class="line">	int i;</span><br><span class="line">	A[0]=A[k];			//A[0]暂存</span><br><span class="line">	for(i=2*k;i&lt;=len;i*=2)&#123;		//沿key较大的子结点向下筛选 </span><br><span class="line">		if(i&lt;len&amp;&amp;A[i]&lt;A[i+1]) </span><br><span class="line">			i++;				//取key较大的子结点的下标</span><br><span class="line">		if(A[0]&gt;=A[i])</span><br><span class="line">			break;			//筛选结束</span><br><span class="line">		else&#123;</span><br><span class="line">			A[k]=A[i];		//将A[i]调整到双亲结点上</span><br><span class="line">			k=i;			//修改k值，以便继续向下筛选 </span><br><span class="line">		&#125; </span><br><span class="line">	&#125; </span><br><span class="line">	A[k]=A[0];				//被筛选结点的值放入最终位置 </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>堆排序的算法为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//堆排序算法</span><br><span class="line">void HeapSort(ElemType A[],int len)&#123;</span><br><span class="line">	ElemType temp; </span><br><span class="line">	int i;</span><br><span class="line">	BuildMaxHeap(A,len);		//初始建堆</span><br><span class="line">	for(i=len;i&gt;1;i--)&#123;			//n-1趟交换和建堆过程 </span><br><span class="line">		//交换对顶元素和堆底元素</span><br><span class="line">		temp=A[i];</span><br><span class="line">		A[i]=A[1];</span><br><span class="line">		A[1]=temp;</span><br><span class="line">		AdjustDown(A,1,i-1);//整理，把剩余的i-1个元素整理成堆 </span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><font color="#000033" size="4">堆页支持删除和插入的操作。由于堆顶元素或为最大值或为最小值，删除堆顶元素时，先将堆的最后一个元素与堆顶元素交换，由于此时堆的性质被破坏，需对此时的根结点进行向下调整操作。对堆进行插入操作时，先将新结点放在堆的末端，再对这个新结点执行向上的调整操作。</font><br>堆排序向上调整的算法为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">void AdjustUp(ElemType A[],int k)&#123;</span><br><span class="line">	//参数k为向上调整的结点</span><br><span class="line">	A[0]=A[k];</span><br><span class="line">	int i=k/2;	//若结点值大于双亲结点，则将双亲结点向下调，并继续向上比较</span><br><span class="line">	while(i&gt;0&amp;&amp;A[i]&lt;A[0])&#123;</span><br><span class="line">		A[k]=A[i];		//双亲结点下调</span><br><span class="line">		k=i;</span><br><span class="line">		i=k/2;</span><br><span class="line">	&#125;</span><br><span class="line">	A[k]=A[0];		//复制到最终位置</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="c实现-1"><a href="#c实现-1" class="headerlink" title="c实现"></a>c实现</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ElemType int </span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	简单选择排序，时间复杂度为O(n^2),空间复杂度为O(1),是一个不稳定的排序 </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SelectSort</span><span class="params">(ElemType A[],<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i,j,min;</span><br><span class="line">	ElemType temp;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n<span class="number">-1</span>;i++)&#123;</span><br><span class="line">		min=i;</span><br><span class="line">		<span class="keyword">for</span>(j=i+<span class="number">1</span>;j&lt;n;j++)</span><br><span class="line">			<span class="keyword">if</span>(A[j]&lt;A[min])</span><br><span class="line">				min=j;		<span class="comment">//更新最小元素的位置</span></span><br><span class="line">		<span class="keyword">if</span>(min!=i)&#123;			<span class="comment">//如果最小的值的小标不是i了，则交换元素 </span></span><br><span class="line">			temp=A[i];</span><br><span class="line">			A[i]=A[min];</span><br><span class="line">			A[min]=temp;	</span><br><span class="line">		&#125; </span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	堆排序，时间复杂度为O(nlog2n),空间复杂度为O(1),是一个不稳定的排序 </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">//建立大根堆</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">AdjustDown</span><span class="params">(ElemType A[],<span class="keyword">int</span> k,<span class="keyword">int</span> len)</span></span>;<span class="comment">//调整k的值 </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BuildMaxHeap</span><span class="params">(ElemType A[],<span class="keyword">int</span> len)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=len/<span class="number">2</span>;i&gt;<span class="number">0</span>;i--)		<span class="comment">//从i=[n/2]~1反复调整堆</span></span><br><span class="line">		AdjustDown(A,i,len); </span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">AdjustDown</span><span class="params">(ElemType A[],<span class="keyword">int</span> k,<span class="keyword">int</span> len)</span></span>&#123;</span><br><span class="line">	<span class="comment">//将元素k向下进行调整</span></span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	A[<span class="number">0</span>]=A[k];			<span class="comment">//A[0]暂存</span></span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">2</span>*k;i&lt;=len;i*=<span class="number">2</span>)&#123;		<span class="comment">//沿key较大的子结点向下筛选 </span></span><br><span class="line">		<span class="keyword">if</span>(i&lt;len&amp;&amp;A[i]&lt;A[i+<span class="number">1</span>]) </span><br><span class="line">			i++;				<span class="comment">//取key较大的子结点的下标</span></span><br><span class="line">		<span class="keyword">if</span>(A[<span class="number">0</span>]&gt;=A[i])</span><br><span class="line">			<span class="keyword">break</span>;			<span class="comment">//筛选结束</span></span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			A[k]=A[i];		<span class="comment">//将A[i]调整到双亲结点上</span></span><br><span class="line">			k=i;			<span class="comment">//修改k值，以便继续向下筛选 </span></span><br><span class="line">		&#125; </span><br><span class="line">	&#125; </span><br><span class="line">	A[k]=A[<span class="number">0</span>];				<span class="comment">//被筛选结点的值放入最终位置 </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//堆排序算法</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">HeapSort</span><span class="params">(ElemType A[],<span class="keyword">int</span> len)</span></span>&#123;</span><br><span class="line">	ElemType temp; </span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	BuildMaxHeap(A,len);		<span class="comment">//初始建堆</span></span><br><span class="line">	<span class="keyword">for</span>(i=len;i&gt;<span class="number">1</span>;i--)&#123;			<span class="comment">//n-1趟交换和建堆过程 </span></span><br><span class="line">		<span class="comment">//交换对顶元素和堆底元素</span></span><br><span class="line">		temp=A[i];</span><br><span class="line">		A[i]=A[<span class="number">1</span>];</span><br><span class="line">		A[<span class="number">1</span>]=temp;</span><br><span class="line">		AdjustDown(A,<span class="number">1</span>,i<span class="number">-1</span>);<span class="comment">//整理，把剩余的i-1个元素整理成堆 </span></span><br><span class="line">	&#125; </span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> A[]=&#123;<span class="number">48</span>,<span class="number">292</span>,<span class="number">989</span>,<span class="number">2895</span>,<span class="number">15</span>,<span class="number">696</span>,<span class="number">2</span>,<span class="number">10</span>,<span class="number">25</span>,<span class="number">233</span>&#125;;</span><br><span class="line">	SelectSort(A,<span class="number">10</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"简单选择排序的结果：\n"</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d "</span>,A[i]);</span><br><span class="line">	<span class="keyword">int</span> B[]=&#123;<span class="number">0</span>,<span class="number">48</span>,<span class="number">292</span>,<span class="number">989</span>,<span class="number">2895</span>,<span class="number">15</span>,<span class="number">696</span>,<span class="number">2</span>,<span class="number">10</span>,<span class="number">25</span>,<span class="number">233</span>&#125;;	<span class="comment">//0号单元不存放东西 </span></span><br><span class="line">	HeapSort(B,<span class="number">11</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"\n堆排序的结果：\n"</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;<span class="number">11</span>;i++)</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d "</span>,B[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/img/2019/dataStruct/sort3.PNG" alt="运行结果"></p>
+<h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><p>“归并”的含义是将两个或两个以上的有序表组合成一个新的有序表。假定待排序表含有n个记录，则可以看成是n个有序子表，每个子表长度为1，然后两两归并，得到n/2向上取整的个长度为2或1的有序表；再两两归并，……如此重复，直到合并成一个长度为n的有序表为止，这种排序方法称为2-路归并排序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#define N 10		//N是原数组的大小 </span><br><span class="line">ElemType *B=(ElemType*)malloc((N+1)*sizeof(ElemType));	//辅助数组B </span><br><span class="line">void Merge(ElemType A[],int low,int mid,int high)&#123;</span><br><span class="line">	//Merge主要的功能是将前后相邻的两个有序表归并为一个有序表的算法</span><br><span class="line">	int i,j,k; </span><br><span class="line">	for(k=low;k&lt;=high;k++)</span><br><span class="line">		B[k]=A[k];				//将A中所有元素复制到B中</span><br><span class="line">	for(i=low,j=mid+1,k=i;i&lt;=mid&amp;&amp;j&lt;=high;k++)&#123;</span><br><span class="line">		if(B[i]&lt;=B[j])			//比较B的左右两段中元素 </span><br><span class="line">			A[k]=B[i++];		//将教小值复制到A中</span><br><span class="line">		else</span><br><span class="line">			A[k]=B[j++]; </span><br><span class="line">	&#125; </span><br><span class="line">	while(i&lt;=mid)</span><br><span class="line">		A[k++]=B[i++];		//若第一个表没有检测完，复制</span><br><span class="line">	while(j&lt;=high)</span><br><span class="line">		A[k++]=B[j++];		//若第二个表没有检测完，复制，两个while循环只会执行一个 </span><br><span class="line">&#125;</span><br><span class="line">//合并：合并两个已排序的子表得到排序结果</span><br><span class="line">void MergeSort(ElemType A[],int low,int high)&#123;</span><br><span class="line">	if(low&lt;high)&#123;</span><br><span class="line">		int mid=(low+high)/2;		//从中间划分两个子序列</span><br><span class="line">		MergeSort(A,low,mid);		//对左侧子序列进行递归排序</span><br><span class="line">		MergeSort(A,mid+1,high);	//对右侧子序列进行递归排序</span><br><span class="line">		Merge(A,low,mid,high);		//归并 </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="c实现-2"><a href="#c实现-2" class="headerlink" title="c实现"></a>c实现</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ElemType int</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 10		<span class="comment">//N是原数组的大小 </span></span></span><br><span class="line">ElemType *B=(ElemType*)<span class="built_in">malloc</span>((N+<span class="number">1</span>)*<span class="keyword">sizeof</span>(ElemType));	<span class="comment">//辅助数组B </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(ElemType A[],<span class="keyword">int</span> low,<span class="keyword">int</span> mid,<span class="keyword">int</span> high)</span></span>&#123;</span><br><span class="line">	<span class="comment">//Merge主要的功能是将前后相邻的两个有序表归并为一个有序表的算法</span></span><br><span class="line">	<span class="keyword">int</span> i,j,k; </span><br><span class="line">	<span class="keyword">for</span>(k=low;k&lt;=high;k++)</span><br><span class="line">		B[k]=A[k];				<span class="comment">//将A中所有元素复制到B中</span></span><br><span class="line">	<span class="keyword">for</span>(i=low,j=mid+<span class="number">1</span>,k=i;i&lt;=mid&amp;&amp;j&lt;=high;k++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(B[i]&lt;=B[j])			<span class="comment">//比较B的左右两段中元素 </span></span><br><span class="line">			A[k]=B[i++];		<span class="comment">//将教小值复制到A中</span></span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			A[k]=B[j++]; </span><br><span class="line">	&#125; </span><br><span class="line">	<span class="keyword">while</span>(i&lt;=mid)</span><br><span class="line">		A[k++]=B[i++];		<span class="comment">//若第一个表没有检测完，复制</span></span><br><span class="line">	<span class="keyword">while</span>(j&lt;=high)</span><br><span class="line">		A[k++]=B[j++];		<span class="comment">//若第二个表没有检测完，复制，两个while循环只会执行一个 </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//合并：合并两个已排序的子表得到排序结果</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MergeSort</span><span class="params">(ElemType A[],<span class="keyword">int</span> low,<span class="keyword">int</span> high)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(low&lt;high)&#123;</span><br><span class="line">		<span class="keyword">int</span> mid=(low+high)/<span class="number">2</span>;		<span class="comment">//从中间划分两个子序列</span></span><br><span class="line">		MergeSort(A,low,mid);		<span class="comment">//对左侧子序列进行递归排序</span></span><br><span class="line">		MergeSort(A,mid+<span class="number">1</span>,high);	<span class="comment">//对右侧子序列进行递归排序</span></span><br><span class="line">		Merge(A,low,mid,high);		<span class="comment">//归并 </span></span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> A[]=&#123;<span class="number">48</span>,<span class="number">292</span>,<span class="number">989</span>,<span class="number">2895</span>,<span class="number">15</span>,<span class="number">696</span>,<span class="number">2</span>,<span class="number">10</span>,<span class="number">25</span>,<span class="number">233</span>&#125;;</span><br><span class="line">	MergeSort(A,<span class="number">0</span>,<span class="number">9</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"归并排序的结果：\n"</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d "</span>,A[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><font color="#000033" size="4">空间复杂度为借助了一个辅助数组B，则空间复杂度为O(n)。每一趟归并的时间复杂度为O(n)，共需进行log<sub>2</sub>n趟归并，所以算法的时间复杂度为O(nlog<sub>2</sub>n).</font><br><br><br><img src="/img/2019/dataStruct/sort4.PNG" alt="运行结果"></p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2019年03月19日 14:42</p>
+        <p>原始链接： <a class="post-url" href="/2019/03/17/排序/" title="排序">https://sunflowerwen.github.io/2019/03/17/排序/</a></p>
+        <footer>
+            <a href="https://sunflowerwen.github.io">
+                <img src="/images/logo0.png" alt="ZhangYuansheng">
+                ZhangYuansheng
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我喝水~~~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/weixin.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/weixin.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/zhifubao.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sunflowerwen.github.io/2019/03/17/排序/&title=《排序》 — SunFlowerWen&pic=img/2019/dataStruct/sort.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sunflowerwen.github.io/2019/03/17/排序/&title=《排序》 — SunFlowerWen&source=我是向日葵，开心时，向着太阳，我不开心时，嗑瓜子" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sunflowerwen.github.io/2019/03/17/排序/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《排序》 — SunFlowerWen&url=https://sunflowerwen.github.io/2019/03/17/排序/&via=https://sunflowerwen.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sunflowerwen.github.io/2019/03/17/排序/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://sunflowerwen.github.io/2019/03/17/排序/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/c语言/" class="color4">c语言</a>
+      
+    <a href="/tags/算法/" class="color3">算法</a>
+      
+    <a href="/tags/排序/" class="color3">排序</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#简述"><span class="post-toc-text">简述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#插入排序"><span class="post-toc-text">插入排序</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#直接插入排序"><span class="post-toc-text">直接插入排序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#折半插入排序"><span class="post-toc-text">折半插入排序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#希尔排序"><span class="post-toc-text">希尔排序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#c实现"><span class="post-toc-text">c实现</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#交换排序"><span class="post-toc-text">交换排序</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#冒泡排序"><span class="post-toc-text">冒泡排序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#快速排序"><span class="post-toc-text">快速排序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#c语言实现"><span class="post-toc-text">c语言实现</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#选择排序"><span class="post-toc-text">选择排序</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简单选择排序"><span class="post-toc-text">简单选择排序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#堆排序"><span class="post-toc-text">堆排序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#c实现-1"><span class="post-toc-text">c实现</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#归并排序"><span class="post-toc-text">归并排序</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#c实现-2"><span class="post-toc-text">c实现</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/17/查找/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">查找</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="排序" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytxjYyi4';
+        var conf = 'prod_48a827102889e4f5d20616c9ac21153b';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+	<div class="outer">
+		<div id="footer-info" class="inner">
+			
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+			<p>
+				Powered by
+				<a href="http://hexo.io/" target="_blank">Hexo</a>
+				Theme
+				<a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+				&copy;
+				2019
+				ZhangYuansheng<br>
+			</p>
+		</div>
+	</div>
+	<div id="music_div">																		
+		<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=547606280&auto=0&height=32"></iframe>
+	</div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://sunflowerwen.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/2019学习/">2019学习</a><a class="category-link" href="/categories/2019我回来了/">2019我回来了</a><a class="category-link" href="/categories/java面试题/">java面试题</a><a class="category-link" href="/categories/必读/">必读</a><a class="category-link" href="/categories/数据结构/">数据结构</a><a class="category-link" href="/categories/疑难杂症/">疑难杂症</a><a class="category-link" href="/categories/莫名难受/">莫名难受</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/2019/" style="font-size: 13.33px;">2019</a> <a href="/tags/Adobe-flash-player/" style="font-size: 10px;">Adobe flash player</a> <a href="/tags/BUG/" style="font-size: 10px;">BUG</a> <a href="/tags/C语言/" style="font-size: 10px;">C语言</a> <a href="/tags/Office-2010/" style="font-size: 10px;">Office 2010</a> <a href="/tags/c语言/" style="font-size: 20px;">c语言</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/springmvc/" style="font-size: 10px;">springmvc</a> <a href="/tags/webService/" style="font-size: 10px;">webService</a> <a href="/tags/不要想/" style="font-size: 10px;">不要想</a> <a href="/tags/不要猜/" style="font-size: 10px;">不要猜</a> <a href="/tags/不要看/" style="font-size: 10px;">不要看</a> <a href="/tags/二叉排序树/" style="font-size: 10px;">二叉排序树</a> <a href="/tags/二叉树/" style="font-size: 10px;">二叉树</a> <a href="/tags/单链表/" style="font-size: 13.33px;">单链表</a> <a href="/tags/图/" style="font-size: 16.67px;">图</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a> <a href="/tags/感想/" style="font-size: 10px;">感想</a> <a href="/tags/技术/" style="font-size: 10px;">技术</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/有感而发/" style="font-size: 10px;">有感而发</a> <a href="/tags/未解决/" style="font-size: 10px;">未解决</a> <a href="/tags/查找/" style="font-size: 10px;">查找</a> <a href="/tags/栈和队列/" style="font-size: 10px;">栈和队列</a> <a href="/tags/树与二叉树/" style="font-size: 10px;">树与二叉树</a> <a href="/tags/框架/" style="font-size: 10px;">框架</a> <a href="/tags/积累/" style="font-size: 10px;">积累</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线索二叉树/" style="font-size: 10px;">线索二叉树</a> <a href="/tags/软件/" style="font-size: 13.33px;">软件</a> <a href="/tags/随心所想/" style="font-size: 10px;">随心所想</a> <a href="/tags/面试题/" style="font-size: 10px;">面试题</a> <a href="/tags/顺序表/" style="font-size: 13.33px;">顺序表</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/feeling">
+                    <i class="fa fa-feeling"></i><span>心得体会</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于我</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/2019/" style="font-size: 13.33px;">2019</a> <a href="/tags/Adobe-flash-player/" style="font-size: 10px;">Adobe flash player</a> <a href="/tags/BUG/" style="font-size: 10px;">BUG</a> <a href="/tags/C语言/" style="font-size: 10px;">C语言</a> <a href="/tags/Office-2010/" style="font-size: 10px;">Office 2010</a> <a href="/tags/c语言/" style="font-size: 20px;">c语言</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/springmvc/" style="font-size: 10px;">springmvc</a> <a href="/tags/webService/" style="font-size: 10px;">webService</a> <a href="/tags/不要想/" style="font-size: 10px;">不要想</a> <a href="/tags/不要猜/" style="font-size: 10px;">不要猜</a> <a href="/tags/不要看/" style="font-size: 10px;">不要看</a> <a href="/tags/二叉排序树/" style="font-size: 10px;">二叉排序树</a> <a href="/tags/二叉树/" style="font-size: 10px;">二叉树</a> <a href="/tags/单链表/" style="font-size: 13.33px;">单链表</a> <a href="/tags/图/" style="font-size: 16.67px;">图</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a> <a href="/tags/感想/" style="font-size: 10px;">感想</a> <a href="/tags/技术/" style="font-size: 10px;">技术</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/有感而发/" style="font-size: 10px;">有感而发</a> <a href="/tags/未解决/" style="font-size: 10px;">未解决</a> <a href="/tags/查找/" style="font-size: 10px;">查找</a> <a href="/tags/栈和队列/" style="font-size: 10px;">栈和队列</a> <a href="/tags/树与二叉树/" style="font-size: 10px;">树与二叉树</a> <a href="/tags/框架/" style="font-size: 10px;">框架</a> <a href="/tags/积累/" style="font-size: 10px;">积累</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线索二叉树/" style="font-size: 10px;">线索二叉树</a> <a href="/tags/软件/" style="font-size: 13.33px;">软件</a> <a href="/tags/随心所想/" style="font-size: 10px;">随心所想</a> <a href="/tags/面试题/" style="font-size: 10px;">面试题</a> <a href="/tags/顺序表/" style="font-size: 13.33px;">顺序表</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
